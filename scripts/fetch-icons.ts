@@ -9,8 +9,9 @@
  * Usage:  pnpm figma:sync
  */
 
-import { readFileSync, writeFileSync, rmSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, rmSync, mkdirSync, existsSync, unlinkSync } from "node:fs";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
 
 // ─── .env loader (zero-dep) ────────────────────────────────────────────────
 const ROOT = join(import.meta.dirname!, "..");
@@ -34,8 +35,10 @@ if (!FIGMA_TOKEN) {
 const FILE_KEY = "3rYV3P1VzRh0q22HNhgCZv";
 const FRAME_NODE_ID = "1:965"; // "DO NOT DELETE THIS FRAME (targeted by script)"
 const SVG_DIR = join(ROOT, "svg");
+const MANIFEST_PATH = join(SVG_DIR, ".manifest.json");
 const BATCH_SIZE = 100; // Figma API limit per images request
 const DEBUG = process.argv.includes("--debug");
+const FORCE = process.argv.includes("--force");
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 interface FigmaNode {
@@ -50,6 +53,37 @@ interface IconEntry {
   iconName: string;
   variant: "outlined" | "filled" | "duotone";
   spacing: "default" | "none";
+}
+
+interface ManifestEntry {
+  nodeId: string;
+  iconName: string;
+  variant: string;
+  spacing: string;
+  hash: string; // sha256 du contenu SVG
+}
+
+interface Manifest {
+  lastModified: string; // Figma file lastModified
+  generatedAt: string;
+  icons: Record<string, ManifestEntry>; // clé = "{variant}/{IconName}-{size}.svg"
+}
+
+function svgHash(content: string): string {
+  return createHash("sha256").update(content).digest("hex").slice(0, 16);
+}
+
+function loadManifest(): Manifest | null {
+  if (!existsSync(MANIFEST_PATH)) return null;
+  try {
+    return JSON.parse(readFileSync(MANIFEST_PATH, "utf-8")) as Manifest;
+  } catch {
+    return null;
+  }
+}
+
+function saveManifest(manifest: Manifest): void {
+  writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), "utf-8");
 }
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
@@ -151,6 +185,21 @@ async function downloadSvg(url: string): Promise<string> {
 async function main() {
   console.log("📡 Fetching Figma file tree…");
 
+  // Fetch file metadata to get lastModified
+  const fileMeta = await figmaGet<{ lastModified: string }>(
+    `/files/${FILE_KEY}?depth=1`
+  );
+  const fileLastModified = fileMeta.lastModified;
+  console.log(`📅 Figma lastModified: ${fileLastModified}`);
+
+  // Check manifest for early exit (no changes at all)
+  const prevManifest = loadManifest();
+  if (!FORCE && prevManifest && prevManifest.lastModified === fileLastModified) {
+    console.log("✅ Aucun changement détecté dans le fichier Figma depuis le dernier sync.");
+    console.log("   Utilisez --force pour forcer un re-téléchargement complet.");
+    return;
+  }
+
   const data = await figmaGet<{ nodes: Record<string, { document: FigmaNode }> }>(
     `/files/${FILE_KEY}/nodes?ids=${FRAME_NODE_ID}&depth=10`
   );
@@ -163,7 +212,7 @@ async function main() {
       console.log(`ℹ️  Node key returned as "${altKey}" (expected "${FRAME_NODE_ID}")`);
       const altNode = data.nodes[altKey]?.document;
       if (altNode) {
-        return runWithRoot(altNode);
+        return runWithRoot(altNode, fileLastModified, prevManifest);
       }
     }
     console.error("❌ Could not find node", FRAME_NODE_ID);
@@ -171,10 +220,10 @@ async function main() {
     process.exit(1);
   }
 
-  return runWithRoot(rootNode);
+  return runWithRoot(rootNode, fileLastModified, prevManifest);
 }
 
-async function runWithRoot(rootNode: FigmaNode) {
+async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevManifest: Manifest | null) {
   console.log(`📂 Root: "${rootNode.name}" [${rootNode.type}] — ${rootNode.children?.length ?? 0} children`);
 
   if (DEBUG) {
@@ -190,7 +239,6 @@ async function runWithRoot(rootNode: FigmaNode) {
     console.log("\n⚠️  No icons found. Run with --debug to inspect the tree:");
     console.log("   pnpm figma:sync -- --debug");
 
-    // Show first few leaf nodes to help diagnose
     const leaves: string[] = [];
     function findLeaves(n: FigmaNode, d = 0) {
       if (!n.children || n.children.length === 0) {
@@ -206,66 +254,165 @@ async function runWithRoot(rootNode: FigmaNode) {
     return;
   }
 
-  // Clean and recreate svg/ directory
-  if (existsSync(SVG_DIR)) {
-    rmSync(SVG_DIR, { recursive: true });
-    console.log("🧹 Cleaned svg/ directory");
+  // Build current icon key set for comparison
+  const currentKeys = new Set<string>();
+  const iconByKey = new Map<string, IconEntry>();
+  for (const icon of icons) {
+    const sizeLabel = icon.spacing === "default" ? "24" : "16";
+    const key = `${icon.variant}/${icon.iconName}-${sizeLabel}.svg`;
+    currentKeys.add(key);
+    iconByKey.set(key, icon);
   }
+
+  // Ensure svg/ directory structure exists
   for (const variant of ["outlined", "filled", "duotone"] as const) {
     mkdirSync(join(SVG_DIR, variant), { recursive: true });
   }
 
-  // Batch export SVGs via Figma images endpoint
-  const allNodeIds = icons.map((i) => i.nodeId);
-  const urlMap: Record<string, string> = {};
+  // Determine which icons to fetch (incremental vs full)
+  let iconsToFetch: IconEntry[];
+  let removedKeys: string[] = [];
 
-  for (let i = 0; i < allNodeIds.length; i += BATCH_SIZE) {
-    const batch = allNodeIds.slice(i, i + BATCH_SIZE);
+  if (FORCE || !prevManifest) {
+    // Full sync: clean and re-download everything
+    if (existsSync(SVG_DIR)) {
+      rmSync(SVG_DIR, { recursive: true });
+      console.log("🧹 Cleaned svg/ directory");
+    }
+    for (const variant of ["outlined", "filled", "duotone"] as const) {
+      mkdirSync(join(SVG_DIR, variant), { recursive: true });
+    }
+    iconsToFetch = icons;
+    console.log(FORCE ? "🔄 Mode --force : re-téléchargement complet" : "🆕 Premier sync : téléchargement complet");
+  } else {
+    // Incremental: only fetch new/changed icons, remove deleted ones
+    const prevKeys = new Set(Object.keys(prevManifest.icons));
+
+    // New icons = present in Figma but not in manifest
+    const newKeys = [...currentKeys].filter((k) => !prevKeys.has(k));
+
+    // Deleted icons = present in manifest but not in Figma
+    removedKeys = [...prevKeys].filter((k) => !currentKeys.has(k));
+
+    // Changed icons = nodeId changed (icon was re-created/replaced in Figma)
+    const changedKeys = [...currentKeys].filter((k) => {
+      if (!prevKeys.has(k)) return false;
+      const prev = prevManifest.icons[k];
+      const curr = iconByKey.get(k)!;
+      return prev.nodeId !== curr.nodeId;
+    });
+
+    iconsToFetch = [...newKeys, ...changedKeys]
+      .map((k) => iconByKey.get(k)!)
+      .filter(Boolean);
+
+    // Remove deleted SVGs from disk
+    for (const key of removedKeys) {
+      const filepath = join(SVG_DIR, key);
+      if (existsSync(filepath)) {
+        unlinkSync(filepath);
+      }
+    }
+
     console.log(
-      `📦 Requesting SVG export batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(allNodeIds.length / BATCH_SIZE)}…`
+      `📊 Incrémental : ${newKeys.length} nouvelles, ${changedKeys.length} modifiées, ${removedKeys.length} supprimées`
     );
 
-    const result = await figmaGet<{ images: Record<string, string> }>(
-      `/images/${FILE_KEY}?ids=${batch.join(",")}&format=svg`
-    );
-
-    Object.assign(urlMap, result.images);
+    if (iconsToFetch.length === 0 && removedKeys.length === 0) {
+      console.log("✅ Aucune icône à mettre à jour.");
+      // Still update manifest with new lastModified
+      const manifest: Manifest = { ...prevManifest, lastModified: fileLastModified, generatedAt: new Date().toISOString() };
+      saveManifest(manifest);
+      return;
+    }
   }
 
-  // Download and save each SVG
-  let saved = 0;
-  let errors = 0;
+  // Batch export SVGs via Figma images endpoint
+  if (iconsToFetch.length > 0) {
+    const allNodeIds = iconsToFetch.map((i) => i.nodeId);
+    const urlMap: Record<string, string> = {};
 
-  const CONCURRENCY = 20;
-  const entries = icons.map((icon) => ({ icon, url: urlMap[icon.nodeId] }));
+    for (let i = 0; i < allNodeIds.length; i += BATCH_SIZE) {
+      const batch = allNodeIds.slice(i, i + BATCH_SIZE);
+      console.log(
+        `📦 Requesting SVG export batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(allNodeIds.length / BATCH_SIZE)}…`
+      );
 
-  for (let i = 0; i < entries.length; i += CONCURRENCY) {
-    const chunk = entries.slice(i, i + CONCURRENCY);
+      const result = await figmaGet<{ images: Record<string, string> }>(
+        `/images/${FILE_KEY}?ids=${batch.join(",")}&format=svg`
+      );
 
-    await Promise.all(
-      chunk.map(async ({ icon, url }) => {
-        if (!url) {
-          console.warn(`⚠️  No URL for ${icon.iconName} (${icon.variant}/${icon.spacing})`);
-          errors++;
-          return;
-        }
+      Object.assign(urlMap, result.images);
+    }
 
-        try {
-          const svg = await downloadSvg(url);
-          const sizeLabel = icon.spacing === "default" ? "24" : "16";
-          const filename = `${icon.iconName}-${sizeLabel}.svg`;
-          const filepath = join(SVG_DIR, icon.variant, filename);
-          writeFileSync(filepath, svg, "utf-8");
-          saved++;
-        } catch (err) {
-          console.warn(`⚠️  Failed to download ${icon.iconName}: ${err}`);
-          errors++;
-        }
-      })
-    );
+    // Download and save each SVG
+    let saved = 0;
+    let errors = 0;
+
+    const CONCURRENCY = 20;
+    const entries = iconsToFetch.map((icon) => ({ icon, url: urlMap[icon.nodeId] }));
+
+    for (let i = 0; i < entries.length; i += CONCURRENCY) {
+      const chunk = entries.slice(i, i + CONCURRENCY);
+
+      await Promise.all(
+        chunk.map(async ({ icon, url }) => {
+          if (!url) {
+            console.warn(`⚠️  No URL for ${icon.iconName} (${icon.variant}/${icon.spacing})`);
+            errors++;
+            return;
+          }
+
+          try {
+            const svg = await downloadSvg(url);
+            const sizeLabel = icon.spacing === "default" ? "24" : "16";
+            const filename = `${icon.iconName}-${sizeLabel}.svg`;
+            const filepath = join(SVG_DIR, icon.variant, filename);
+            writeFileSync(filepath, svg, "utf-8");
+            saved++;
+          } catch (err) {
+            console.warn(`⚠️  Failed to download ${icon.iconName}: ${err}`);
+            errors++;
+          }
+        })
+      );
+    }
+
+    console.log(`\n✅ Saved ${saved} SVGs (${errors} errors)`);
   }
 
-  console.log(`\n✅ Saved ${saved} SVGs (${errors} errors)`);
+  if (removedKeys.length > 0) {
+    console.log(`🗑️  Supprimé ${removedKeys.length} SVGs obsolètes`);
+  }
+
+  // Build and save manifest
+  const manifestIcons: Record<string, ManifestEntry> = {};
+  for (const icon of icons) {
+    const sizeLabel = icon.spacing === "default" ? "24" : "16";
+    const key = `${icon.variant}/${icon.iconName}-${sizeLabel}.svg`;
+    const filepath = join(SVG_DIR, key);
+
+    let hash = "";
+    if (existsSync(filepath)) {
+      hash = svgHash(readFileSync(filepath, "utf-8"));
+    }
+
+    manifestIcons[key] = {
+      nodeId: icon.nodeId,
+      iconName: icon.iconName,
+      variant: icon.variant,
+      spacing: icon.spacing,
+      hash,
+    };
+  }
+
+  const manifest: Manifest = {
+    lastModified: fileLastModified,
+    generatedAt: new Date().toISOString(),
+    icons: manifestIcons,
+  };
+  saveManifest(manifest);
+  console.log(`📋 Manifeste sauvegardé (${Object.keys(manifestIcons).length} entrées)`);
 }
 
 main().catch((err) => {

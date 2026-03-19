@@ -28,7 +28,9 @@ comete-icons/
 
 | Commande | Description |
 |---|---|
-| `FIGMA_TOKEN=xxx pnpm figma:sync` | Exporte les SVGs depuis Figma |
+| `pnpm figma:sync` | Export incrémental des SVGs depuis Figma (ne re-télécharge que les changements) |
+| `pnpm figma:sync -- --force` | Re-télécharge tous les SVGs (ignore le cache/manifeste) |
+| `pnpm figma:sync -- --debug` | Mode debug : affiche l'arbre Figma pour diagnostic |
 | `pnpm optimize` | Optimise les SVGs avec SVGO |
 | `pnpm generate` | Génère les composants React depuis les SVGs |
 | `pnpm pipeline` | fetch → optimize → generate (chaîne complète) |
@@ -44,6 +46,17 @@ comete-icons/
 
 Les icônes utilisent `currentColor`. La prop `color` mappe vers les CSS custom properties
 de `@naxit/comete-design-tokens` : `--icon-default`, `--icon-success`, etc.
+
+## Export incrémental
+
+Le script `fetch-icons.ts` utilise un manifeste (`svg/.manifest.json`) pour tracker l'état des icônes :
+
+- **Première exécution** : téléchargement complet, création du manifeste
+- **Exécutions suivantes** : compare le `lastModified` du fichier Figma avec le manifeste
+  - Si identique → skip complet (aucun appel API supplémentaire)
+  - Si différent → récupère l'arbre, compare les nodeIds pour détecter ajouts/suppressions/modifications
+- **`--force`** : ignore le manifeste et re-télécharge tout
+- Les icônes supprimées dans Figma sont automatiquement supprimées du dossier `svg/`
 
 ## Convention de nommage
 
