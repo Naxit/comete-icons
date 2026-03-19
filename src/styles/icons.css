@@ -1,0 +1,17 @@
+/* Auto-generated — do not edit manually */
+/* Maps icon color props to Comète design token CSS custom properties */
+
+.comete-icon--default { color: var(--icon-default); }
+.comete-icon--disabled { color: var(--icon-disabled); }
+.comete-icon--inverted { color: var(--icon-inverted); }
+.comete-icon--warning { color: var(--icon-warning); }
+.comete-icon--critical { color: var(--icon-critical); }
+.comete-icon--success { color: var(--icon-success); }
+.comete-icon--brand { color: var(--icon-brand); }
+.comete-icon--selected { color: var(--icon-selected); }
+.comete-icon--information { color: var(--icon-information); }
+.comete-icon--subtle { color: var(--icon-subtle); }
+.comete-icon--subtlest { color: var(--icon-subtlest); }
+.comete-icon--accent { color: var(--icon-accent); }
+.comete-icon--day { color: var(--icon-day); }
+.comete-icon--night { color: var(--icon-night); }
