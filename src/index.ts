@@ -10,4 +10,5 @@ export type { IconProps, IconSpacing, IconVariant, IconColor } from "./types";
 export { getIconClass } from "./utils";
 
 // Icons
-export { Check } from "./icons/Check";
+export { ConfirmationNumber } from "./icons/ConfirmationNumber";
+export { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";

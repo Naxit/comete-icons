@@ -29,6 +29,7 @@
   },
   "scripts": {
     "fetch": "tsx scripts/fetch-icons.ts",
+    "fetch-test": "tsx scripts/fetch-test.ts",
     "optimize": "tsx scripts/optimize-svg.ts",
     "generate": "tsx scripts/generate-components.ts",
     "pipeline": "pnpm fetch && pnpm optimize && pnpm generate",
