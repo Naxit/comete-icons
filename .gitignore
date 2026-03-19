@@ -4,3 +4,4 @@ svg/
 .env
 *.tgz
 tsup.config.bundled_*.mjs
+package-lock.json
