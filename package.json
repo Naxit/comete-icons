@@ -1,6 +1,6 @@
 {
   "name": "@naxit/comete-icons",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Comète icon library — React components with design token color support",
   "author": "naxit",
   "license": "CC0-1.0",
@@ -28,11 +28,11 @@
     "node": ">=22"
   },
   "scripts": {
-    "fetch": "tsx scripts/fetch-icons.ts",
-    "fetch-test": "tsx scripts/fetch-test.ts",
+    "figma:sync": "tsx scripts/fetch-icons.ts",
+    "figma:test": "tsx scripts/fetch-test.ts",
     "optimize": "tsx scripts/optimize-svg.ts",
     "generate": "tsx scripts/generate-components.ts",
-    "pipeline": "pnpm fetch && pnpm optimize && pnpm generate",
+    "pipeline": "pnpm figma:sync && pnpm optimize && pnpm generate && pnpm build",
     "build": "tsup",
     "clean": "rimraf dist",
     "prebuild": "rimraf dist",

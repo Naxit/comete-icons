@@ -18,7 +18,7 @@ comete-icons/
 ├── src/
 │   ├── icons/*.tsx             # Composants générés (1 par icône)
 │   ├── styles/icons.css        # Classes CSS → design tokens
-│   ├── types.ts                # IconProps, IconColor, IconSize, IconVariant
+│   ├── types.ts                # IconProps, IconColor, IconSpacing, IconVariant
 │   ├── utils.ts                # getIconClass()
 │   └── index.ts                # Barrel export
 └── dist/                       # Build ESM (tsup)
@@ -28,7 +28,7 @@ comete-icons/
 
 | Commande | Description |
 |---|---|
-| `FIGMA_TOKEN=xxx pnpm fetch` | Exporte les SVGs depuis Figma |
+| `FIGMA_TOKEN=xxx pnpm figma:sync` | Exporte les SVGs depuis Figma |
 | `pnpm optimize` | Optimise les SVGs avec SVGO |
 | `pnpm generate` | Génère les composants React depuis les SVGs |
 | `pnpm pipeline` | fetch → optimize → generate (chaîne complète) |
@@ -36,9 +36,9 @@ comete-icons/
 
 ## Figma
 
-- **Fichier** : `3rYV3P1VzRh0q22HNhgCZv`
-- **Frame** : `1:965` (Icons)
-- **Properties** : `variant` (outlined/filled/duotone), `spacing` (default=24px, none=16px)
+- **Fichier** : `3rYV3P1VzRh0q22HNhgCZv` (Comète Icons Set)
+- **Frame cible** : `1:965` — nommée **"DO NOT DELETE THIS FRAME (targeted by script)"**
+- **Properties des composants** : `variant` (outlined/filled/duotone), `spacing` (default=24px avec padding, none=16px sans padding)
 
 ## Couleurs
 
@@ -52,7 +52,8 @@ Fichiers SVG : `{IconName}-{16|24}.svg`
 
 ## Ajout d'une nouvelle icône
 
-1. Ajouter l'icône dans le fichier Figma (3 variants × 2 sizes)
-2. `FIGMA_TOKEN=xxx pnpm pipeline` pour tout regénérer
-3. `pnpm build`
-4. Commit + publish
+1. Ajouter l'icône dans la frame **"DO NOT DELETE THIS FRAME (targeted by script)"** du fichier Figma (3 variants × 2 spacings)
+2. Nommer la frame de l'icône `Icon/{NomEnPascalCase}` avec des instances portant les properties `variant` et `spacing`
+3. `FIGMA_TOKEN=xxx pnpm pipeline` pour tout regénérer (⚠️ ne pas utiliser `pnpm fetch` qui est une commande built-in de pnpm)
+4. `pnpm build`
+5. Commit + publish
