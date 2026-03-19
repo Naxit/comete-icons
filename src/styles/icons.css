@@ -4,6 +4,9 @@
 .comete-icon--default { color: var(--icon-default); }
 .comete-icon--disabled { color: var(--icon-disabled); }
 .comete-icon--inverted { color: var(--icon-inverted); }
+/* NOTE: on-warning — used for icons on warning bold backgrounds (e.g. contained warning button).
+   Warning bold backgrounds are light/yellow, requiring dark text and icons for contrast. */
+.comete-icon--on-warning { color: var(--porcelain-950); }
 .comete-icon--warning { color: var(--icon-warning); }
 .comete-icon--critical { color: var(--icon-critical); }
 .comete-icon--success { color: var(--icon-success); }

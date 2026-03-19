@@ -8,6 +8,7 @@ export type IconColor =
   | "default"
   | "disabled"
   | "inverted"
+  | "on-warning"
   | "warning"
   | "critical"
   | "success"
