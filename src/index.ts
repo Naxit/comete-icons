@@ -3,12 +3,6 @@
 // Styles
 import "./styles/icons.css";
 
-// Types
-export type { IconProps, IconSpacing, IconVariant, IconColor } from "./types";
-
-// Utils
-export { getIconClass } from "./utils";
-
 // Icons
 export { AccentDot } from "./icons/AccentDot";
 export { Accessibility } from "./icons/Accessibility";
@@ -36,10 +30,10 @@ export { ArrowPositive } from "./icons/ArrowPositive";
 export { AttachFile } from "./icons/AttachFile";
 export { AttachFileAdd } from "./icons/AttachFileAdd";
 export { AttachFileOff } from "./icons/AttachFileOff";
-export { AutoStories } from "./icons/AutoStories";
 export { Autorenew } from "./icons/Autorenew";
-export { BadMood } from "./icons/BadMood";
+export { AutoStories } from "./icons/AutoStories";
 export { Badge } from "./icons/Badge";
+export { BadMood } from "./icons/BadMood";
 export { BarChart } from "./icons/BarChart";
 export { BillPackages } from "./icons/BillPackages";
 export { Block } from "./icons/Block";
@@ -78,10 +72,10 @@ export { ClockingIn } from "./icons/ClockingIn";
 export { ClockingLate } from "./icons/ClockingLate";
 export { ClockingOut } from "./icons/ClockingOut";
 export { ClockingOutOfArea } from "./icons/ClockingOutOfArea";
-export { ClockingWithGeolocation } from "./icons/ClockingWithGeolocation";
-export { ClockingWithoutGeolocation } from "./icons/ClockingWithoutGeolocation";
 export { Clockings } from "./icons/Clockings";
 export { ClockingsValid } from "./icons/ClockingsValid";
+export { ClockingWithGeolocation } from "./icons/ClockingWithGeolocation";
+export { ClockingWithoutGeolocation } from "./icons/ClockingWithoutGeolocation";
 export { CloseCritical } from "./icons/CloseCritical";
 export { CloseSmallCritical } from "./icons/CloseSmallCritical";
 export { CloseSmallFaded } from "./icons/CloseSmallFaded";
@@ -160,7 +154,6 @@ export { FlipToFront } from "./icons/FlipToFront";
 export { Folder } from "./icons/Folder";
 export { FolderManaged } from "./icons/FolderManaged";
 export { FollowUp } from "./icons/FollowUp";
-export { FormEdit } from "./icons/FormEdit";
 export { FormatAlignCenter } from "./icons/FormatAlignCenter";
 export { FormatAlignJustify } from "./icons/FormatAlignJustify";
 export { FormatAlignLeft } from "./icons/FormatAlignLeft";
@@ -169,6 +162,7 @@ export { FormatBold } from "./icons/FormatBold";
 export { FormatItalic } from "./icons/FormatItalic";
 export { FormatParagraph } from "./icons/FormatParagraph";
 export { FormatUnderline } from "./icons/FormatUnderline";
+export { FormEdit } from "./icons/FormEdit";
 export { FrameInspect } from "./icons/FrameInspect";
 export { FullCoverage } from "./icons/FullCoverage";
 export { FullScreen } from "./icons/FullScreen";
@@ -190,11 +184,11 @@ export { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 export { InvoiceCancellation } from "./icons/InvoiceCancellation";
 export { InvoiceCredit } from "./icons/InvoiceCredit";
 export { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
-export { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
-export { InvoiceValidation } from "./icons/InvoiceValidation";
 export { Invoices } from "./icons/Invoices";
 export { InvoicesExport } from "./icons/InvoicesExport";
 export { InvoicesProofs } from "./icons/InvoicesProofs";
+export { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
+export { InvoiceValidation } from "./icons/InvoiceValidation";
 export { IosShare } from "./icons/IosShare";
 export { JobSearch } from "./icons/JobSearch";
 export { JoinInner } from "./icons/JoinInner";
@@ -291,8 +285,8 @@ export { PrintResourceSchedule } from "./icons/PrintResourceSchedule";
 export { PrintSettings } from "./icons/PrintSettings";
 export { PrintSiteSchedule } from "./icons/PrintSiteSchedule";
 export { Publish } from "./icons/Publish";
-export { PublishSchedule } from "./icons/PublishSchedule";
 export { Published } from "./icons/Published";
+export { PublishSchedule } from "./icons/PublishSchedule";
 export { Quote } from "./icons/Quote";
 export { QuoteToOrder } from "./icons/QuoteToOrder";
 export { RadioButtonChecked } from "./icons/RadioButtonChecked";
@@ -331,8 +325,8 @@ export { Send } from "./icons/Send";
 export { SendDocumentToSign } from "./icons/SendDocumentToSign";
 export { Settings } from "./icons/Settings";
 export { SettingsBackupRestore } from "./icons/SettingsBackupRestore";
-export { SettleOrder } from "./icons/SettleOrder";
 export { SettlementsOfDebtorClients } from "./icons/SettlementsOfDebtorClients";
+export { SettleOrder } from "./icons/SettleOrder";
 export { Shelves } from "./icons/Shelves";
 export { ShoppingCart } from "./icons/ShoppingCart";
 export { ShowArchives } from "./icons/ShowArchives";
@@ -369,8 +363,8 @@ export { UnarchivedServices } from "./icons/UnarchivedServices";
 export { UnavailabilitiesSettings } from "./icons/UnavailabilitiesSettings";
 export { Undo } from "./icons/Undo";
 export { Unpublish } from "./icons/Unpublish";
-export { UnpublishSchedule } from "./icons/UnpublishSchedule";
 export { Unpublished } from "./icons/Unpublished";
+export { UnpublishSchedule } from "./icons/UnpublishSchedule";
 export { UnvaluedBillableRates } from "./icons/UnvaluedBillableRates";
 export { UnvaluesCharges } from "./icons/UnvaluesCharges";
 export { Update } from "./icons/Update";
@@ -390,3 +384,7 @@ export { Work } from "./icons/Work";
 export { Workspaces } from "./icons/Workspaces";
 export { Zip } from "./icons/Zip";
 export { ZoomOutMap } from "./icons/ZoomOutMap";
+// Types
+export type { IconColor, IconProps, IconSpacing, IconVariant } from "./types";
+// Utils
+export { getIconClass } from "./utils";

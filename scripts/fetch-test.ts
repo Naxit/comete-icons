@@ -5,7 +5,7 @@
  * Usage:  FIGMA_TOKEN=xxx tsx scripts/fetch-test.ts
  */
 
-import { writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
@@ -20,19 +20,79 @@ const SVG_DIR = join(import.meta.dirname!, "..", "svg");
 // Only the 2 test icons — all 12 variant/spacing combos
 const TEST_ICONS = [
   // ConfirmationNumber
-  { nodeId: "620:2993", name: "ConfirmationNumber", variant: "outlined", file: "24" },
-  { nodeId: "620:2995", name: "ConfirmationNumber", variant: "filled",   file: "24" },
-  { nodeId: "620:2997", name: "ConfirmationNumber", variant: "duotone",  file: "24" },
-  { nodeId: "620:2999", name: "ConfirmationNumber", variant: "outlined", file: "16" },
-  { nodeId: "620:3001", name: "ConfirmationNumber", variant: "filled",   file: "16" },
-  { nodeId: "620:3003", name: "ConfirmationNumber", variant: "duotone",  file: "16" },
+  {
+    nodeId: "620:2993",
+    name: "ConfirmationNumber",
+    variant: "outlined",
+    file: "24",
+  },
+  {
+    nodeId: "620:2995",
+    name: "ConfirmationNumber",
+    variant: "filled",
+    file: "24",
+  },
+  {
+    nodeId: "620:2997",
+    name: "ConfirmationNumber",
+    variant: "duotone",
+    file: "24",
+  },
+  {
+    nodeId: "620:2999",
+    name: "ConfirmationNumber",
+    variant: "outlined",
+    file: "16",
+  },
+  {
+    nodeId: "620:3001",
+    name: "ConfirmationNumber",
+    variant: "filled",
+    file: "16",
+  },
+  {
+    nodeId: "620:3003",
+    name: "ConfirmationNumber",
+    variant: "duotone",
+    file: "16",
+  },
   // InvoiceToApprovedPlatform
-  { nodeId: "1472:1522", name: "InvoiceToApprovedPlatform", variant: "outlined", file: "24" },
-  { nodeId: "1472:1524", name: "InvoiceToApprovedPlatform", variant: "filled",   file: "24" },
-  { nodeId: "1472:1526", name: "InvoiceToApprovedPlatform", variant: "duotone",  file: "24" },
-  { nodeId: "1472:1528", name: "InvoiceToApprovedPlatform", variant: "outlined", file: "16" },
-  { nodeId: "1472:1530", name: "InvoiceToApprovedPlatform", variant: "filled",   file: "16" },
-  { nodeId: "1472:1532", name: "InvoiceToApprovedPlatform", variant: "duotone",  file: "16" },
+  {
+    nodeId: "1472:1522",
+    name: "InvoiceToApprovedPlatform",
+    variant: "outlined",
+    file: "24",
+  },
+  {
+    nodeId: "1472:1524",
+    name: "InvoiceToApprovedPlatform",
+    variant: "filled",
+    file: "24",
+  },
+  {
+    nodeId: "1472:1526",
+    name: "InvoiceToApprovedPlatform",
+    variant: "duotone",
+    file: "24",
+  },
+  {
+    nodeId: "1472:1528",
+    name: "InvoiceToApprovedPlatform",
+    variant: "outlined",
+    file: "16",
+  },
+  {
+    nodeId: "1472:1530",
+    name: "InvoiceToApprovedPlatform",
+    variant: "filled",
+    file: "16",
+  },
+  {
+    nodeId: "1472:1532",
+    name: "InvoiceToApprovedPlatform",
+    variant: "duotone",
+    file: "16",
+  },
 ];
 
 async function figmaGet<T>(path: string): Promise<T> {
@@ -55,7 +115,7 @@ async function main() {
   console.log("📡 Requesting SVG export from Figma…");
 
   const result = await figmaGet<{ images: Record<string, string> }>(
-    `/images/${FILE_KEY}?ids=${nodeIds}&format=svg`
+    `/images/${FILE_KEY}?ids=${nodeIds}&format=svg`,
   );
 
   console.log(`📦 Got ${Object.keys(result.images).length} SVG URLs`);
@@ -71,9 +131,15 @@ async function main() {
 
     const res = await fetch(url);
     const svg = await res.text();
-    const filepath = join(SVG_DIR, icon.variant, `${icon.name}-${icon.file}.svg`);
+    const filepath = join(
+      SVG_DIR,
+      icon.variant,
+      `${icon.name}-${icon.file}.svg`,
+    );
     writeFileSync(filepath, svg, "utf-8");
-    console.log(`  ✓ ${icon.variant}/${icon.name}-${icon.file}.svg (${svg.length} bytes)`);
+    console.log(
+      `  ✓ ${icon.variant}/${icon.name}-${icon.file}.svg (${svg.length} bytes)`,
+    );
     saved++;
   }
 
