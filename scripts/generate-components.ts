@@ -11,8 +11,14 @@
  * Usage:  tsx scripts/generate-components.ts
  */
 
-import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
-import { join, basename } from "node:path";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
+import { basename, join } from "node:path";
 
 const ROOT = join(import.meta.dirname!, "..");
 const SVG_DIR = join(ROOT, "svg");
@@ -22,8 +28,10 @@ const STYLES_DIR = join(SRC_DIR, "styles");
 const VARIANTS = ["outlined", "filled", "duotone"] as const;
 // SVG filenames use 24 (spacing=default, with padding) and 16 (spacing=none, no padding)
 const SPACINGS = ["default", "none"] as const;
-const SPACING_TO_FILE: Record<string, string> = { default: "24", none: "16" };
-const FILE_TO_SPACING: Record<string, string> = { "24": "default", "16": "none" };
+const FILE_TO_SPACING: Record<string, string> = {
+  "24": "default",
+  "16": "none",
+};
 
 const ICON_COLORS = [
   "default",
@@ -47,7 +55,7 @@ const ICON_COLORS = [
 /** Extract SVG inner content (everything between <svg> and </svg>) */
 function extractSvgInner(svg: string): string {
   // Remove XML declaration if present
-  let clean = svg.replace(/<\?xml[^?]*\?>\s*/g, "");
+  const clean = svg.replace(/<\?xml[^?]*\?>\s*/g, "");
 
   // Extract inner content
   const match = clean.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
@@ -90,7 +98,12 @@ interface SvgData {
 
 type IconMap = Map<
   string, // IconName
-  Partial<Record<(typeof VARIANTS)[number], Partial<Record<(typeof SPACINGS)[number], SvgData>>>>
+  Partial<
+    Record<
+      (typeof VARIANTS)[number],
+      Partial<Record<(typeof SPACINGS)[number], SvgData>>
+    >
+  >
 >;
 
 function buildIconMap(): IconMap {
@@ -204,7 +217,7 @@ function generateCss(): string {
 
 function generateComponent(
   iconName: string,
-  variants: IconMap extends Map<string, infer V> ? V : never
+  variants: IconMap extends Map<string, infer V> ? V : never,
 ): string {
   // Build the variant data structure keyed by spacing
   const variantEntries: string[] = [];
@@ -218,12 +231,14 @@ function generateComponent(
       const data = spacings[spacing];
       if (!data) continue;
       spacingEntries.push(
-        `      "${spacing}": { viewBox: "${data.viewBox}", paths: <>${data.inner}</> }`
+        `      "${spacing}": { viewBox: "${data.viewBox}", paths: <>${data.inner}</> }`,
       );
     }
 
     if (spacingEntries.length > 0) {
-      variantEntries.push(`    ${variant}: {\n${spacingEntries.join(",\n")}\n    }`);
+      variantEntries.push(
+        `    ${variant}: {\n${spacingEntries.join(",\n")}\n    }`,
+      );
     }
   }
 
@@ -269,18 +284,18 @@ ${iconName}.displayName = "${iconName}";
 
 function generateIndex(iconNames: string[]): string {
   const lines = [
-    '/* Auto-generated — do not edit manually */',
-    '',
-    '// Styles',
+    "/* Auto-generated — do not edit manually */",
+    "",
+    "// Styles",
     'import "./styles/icons.css";',
-    '',
-    '// Types',
+    "",
+    "// Types",
     'export type { IconProps, IconSpacing, IconVariant, IconColor } from "./types";',
-    '',
-    '// Utils',
+    "",
+    "// Utils",
     'export { getIconClass } from "./utils";',
-    '',
-    '// Icons',
+    "",
+    "// Icons",
   ];
 
   for (const name of iconNames.sort()) {
@@ -315,7 +330,11 @@ function main() {
   // Generate components
   const iconNames: string[] = [];
   for (const [name, variants] of iconMap) {
-    writeFileSync(join(ICONS_DIR, `${name}.tsx`), generateComponent(name, variants), "utf-8");
+    writeFileSync(
+      join(ICONS_DIR, `${name}.tsx`),
+      generateComponent(name, variants),
+      "utf-8",
+    );
     iconNames.push(name);
   }
   console.log(`   ✓ ${iconNames.length} icon components`);

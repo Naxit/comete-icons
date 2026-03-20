@@ -9,9 +9,16 @@
  * Usage:  pnpm figma:sync
  */
 
-import { readFileSync, writeFileSync, rmSync, mkdirSync, existsSync, unlinkSync } from "node:fs";
-import { join } from "node:path";
 import { createHash } from "node:crypto";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  unlinkSync,
+  writeFileSync,
+} from "node:fs";
+import { join } from "node:path";
 
 // ─── .env loader (zero-dep) ────────────────────────────────────────────────
 const ROOT = join(import.meta.dirname!, "..");
@@ -28,7 +35,9 @@ if (existsSync(envPath)) {
 // ─── Config ────────────────────────────────────────────────────────────────
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
 if (!FIGMA_TOKEN) {
-  console.error("❌ Missing FIGMA_TOKEN. Set it in .env or pass via env variable.");
+  console.error(
+    "❌ Missing FIGMA_TOKEN. Set it in .env or pass via env variable.",
+  );
   process.exit(1);
 }
 
@@ -116,14 +125,21 @@ function parseVariantProps(name: string): Record<string, string> {
  * COMPONENT_SET, GROUP, etc.). Leaf variants can be INSTANCE, COMPONENT,
  * or any type with property syntax in the name.
  */
-function collectIcons(node: FigmaNode, parentIconName?: string, depth = 0): IconEntry[] {
+function collectIcons(
+  node: FigmaNode,
+  parentIconName?: string,
+  depth = 0,
+): IconEntry[] {
   const results: IconEntry[] = [];
 
   // Detect Icon/Name containers (any type, not just FRAME)
   let iconName = parentIconName;
   if (node.name.startsWith("Icon/")) {
     iconName = node.name.replace("Icon/", "");
-    if (DEBUG) console.log(`${"  ".repeat(depth)}📁 Icon/${iconName} [${node.type}] id=${node.id}`);
+    if (DEBUG)
+      console.log(
+        `${"  ".repeat(depth)}📁 Icon/${iconName} [${node.type}] id=${node.id}`,
+      );
   }
 
   // Check if this node has variant properties (leaf node)
@@ -146,7 +162,7 @@ function collectIcons(node: FigmaNode, parentIconName?: string, depth = 0): Icon
     if (iconName !== "Empty" && iconName !== "Unused") {
       if (DEBUG) {
         console.log(
-          `${"  ".repeat(depth)}  ✓ ${node.name} [${node.type}] → ${iconName} ${variant}/${spacing}`
+          `${"  ".repeat(depth)}  ✓ ${node.name} [${node.type}] → ${iconName} ${variant}/${spacing}`,
         );
       }
       results.push({ nodeId: node.id, iconName, variant, spacing });
@@ -167,7 +183,9 @@ function collectIcons(node: FigmaNode, parentIconName?: string, depth = 0): Icon
 function debugTree(node: FigmaNode, depth = 0, maxDepth = 4): void {
   if (depth > maxDepth) return;
   const childCount = node.children?.length ?? 0;
-  console.log(`${"  ".repeat(depth)}[${node.type}] "${node.name}" (${childCount} children) id=${node.id}`);
+  console.log(
+    `${"  ".repeat(depth)}[${node.type}] "${node.name}" (${childCount} children) id=${node.id}`,
+  );
   if (node.children) {
     for (const child of node.children) {
       debugTree(child, depth + 1, maxDepth);
@@ -187,29 +205,39 @@ async function main() {
 
   // Fetch file metadata to get lastModified
   const fileMeta = await figmaGet<{ lastModified: string }>(
-    `/files/${FILE_KEY}?depth=1`
+    `/files/${FILE_KEY}?depth=1`,
   );
   const fileLastModified = fileMeta.lastModified;
   console.log(`📅 Figma lastModified: ${fileLastModified}`);
 
   // Check manifest for early exit (no changes at all)
   const prevManifest = loadManifest();
-  if (!FORCE && prevManifest && prevManifest.lastModified === fileLastModified) {
-    console.log("✅ Aucun changement détecté dans le fichier Figma depuis le dernier sync.");
-    console.log("   Utilisez --force pour forcer un re-téléchargement complet.");
+  if (
+    !FORCE &&
+    prevManifest &&
+    prevManifest.lastModified === fileLastModified
+  ) {
+    console.log(
+      "✅ Aucun changement détecté dans le fichier Figma depuis le dernier sync.",
+    );
+    console.log(
+      "   Utilisez --force pour forcer un re-téléchargement complet.",
+    );
     return;
   }
 
-  const data = await figmaGet<{ nodes: Record<string, { document: FigmaNode }> }>(
-    `/files/${FILE_KEY}/nodes?ids=${FRAME_NODE_ID}&depth=10`
-  );
+  const data = await figmaGet<{
+    nodes: Record<string, { document: FigmaNode }>;
+  }>(`/files/${FILE_KEY}/nodes?ids=${FRAME_NODE_ID}&depth=10`);
 
   const rootNode = data.nodes[FRAME_NODE_ID]?.document;
   if (!rootNode) {
     // Try URL-encoded key format (1-965 vs 1:965)
     const altKey = Object.keys(data.nodes)[0];
     if (altKey) {
-      console.log(`ℹ️  Node key returned as "${altKey}" (expected "${FRAME_NODE_ID}")`);
+      console.log(
+        `ℹ️  Node key returned as "${altKey}" (expected "${FRAME_NODE_ID}")`,
+      );
       const altNode = data.nodes[altKey]?.document;
       if (altNode) {
         return runWithRoot(altNode, fileLastModified, prevManifest);
@@ -223,8 +251,14 @@ async function main() {
   return runWithRoot(rootNode, fileLastModified, prevManifest);
 }
 
-async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevManifest: Manifest | null) {
-  console.log(`📂 Root: "${rootNode.name}" [${rootNode.type}] — ${rootNode.children?.length ?? 0} children`);
+async function runWithRoot(
+  rootNode: FigmaNode,
+  fileLastModified: string,
+  prevManifest: Manifest | null,
+) {
+  console.log(
+    `📂 Root: "${rootNode.name}" [${rootNode.type}] — ${rootNode.children?.length ?? 0} children`,
+  );
 
   if (DEBUG) {
     console.log("\n── Tree structure (4 levels) ──");
@@ -283,7 +317,11 @@ async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevMa
       mkdirSync(join(SVG_DIR, variant), { recursive: true });
     }
     iconsToFetch = icons;
-    console.log(FORCE ? "🔄 Mode --force : re-téléchargement complet" : "🆕 Premier sync : téléchargement complet");
+    console.log(
+      FORCE
+        ? "🔄 Mode --force : re-téléchargement complet"
+        : "🆕 Premier sync : téléchargement complet",
+    );
   } else {
     // Incremental: only fetch new/changed icons, remove deleted ones
     const prevKeys = new Set(Object.keys(prevManifest.icons));
@@ -315,13 +353,17 @@ async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevMa
     }
 
     console.log(
-      `📊 Incrémental : ${newKeys.length} nouvelles, ${changedKeys.length} modifiées, ${removedKeys.length} supprimées`
+      `📊 Incrémental : ${newKeys.length} nouvelles, ${changedKeys.length} modifiées, ${removedKeys.length} supprimées`,
     );
 
     if (iconsToFetch.length === 0 && removedKeys.length === 0) {
       console.log("✅ Aucune icône à mettre à jour.");
       // Still update manifest with new lastModified
-      const manifest: Manifest = { ...prevManifest, lastModified: fileLastModified, generatedAt: new Date().toISOString() };
+      const manifest: Manifest = {
+        ...prevManifest,
+        lastModified: fileLastModified,
+        generatedAt: new Date().toISOString(),
+      };
       saveManifest(manifest);
       return;
     }
@@ -335,11 +377,11 @@ async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevMa
     for (let i = 0; i < allNodeIds.length; i += BATCH_SIZE) {
       const batch = allNodeIds.slice(i, i + BATCH_SIZE);
       console.log(
-        `📦 Requesting SVG export batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(allNodeIds.length / BATCH_SIZE)}…`
+        `📦 Requesting SVG export batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(allNodeIds.length / BATCH_SIZE)}…`,
       );
 
       const result = await figmaGet<{ images: Record<string, string> }>(
-        `/images/${FILE_KEY}?ids=${batch.join(",")}&format=svg`
+        `/images/${FILE_KEY}?ids=${batch.join(",")}&format=svg`,
       );
 
       Object.assign(urlMap, result.images);
@@ -350,7 +392,10 @@ async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevMa
     let errors = 0;
 
     const CONCURRENCY = 20;
-    const entries = iconsToFetch.map((icon) => ({ icon, url: urlMap[icon.nodeId] }));
+    const entries = iconsToFetch.map((icon) => ({
+      icon,
+      url: urlMap[icon.nodeId],
+    }));
 
     for (let i = 0; i < entries.length; i += CONCURRENCY) {
       const chunk = entries.slice(i, i + CONCURRENCY);
@@ -358,7 +403,9 @@ async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevMa
       await Promise.all(
         chunk.map(async ({ icon, url }) => {
           if (!url) {
-            console.warn(`⚠️  No URL for ${icon.iconName} (${icon.variant}/${icon.spacing})`);
+            console.warn(
+              `⚠️  No URL for ${icon.iconName} (${icon.variant}/${icon.spacing})`,
+            );
             errors++;
             return;
           }
@@ -374,7 +421,7 @@ async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevMa
             console.warn(`⚠️  Failed to download ${icon.iconName}: ${err}`);
             errors++;
           }
-        })
+        }),
       );
     }
 
@@ -412,7 +459,9 @@ async function runWithRoot(rootNode: FigmaNode, fileLastModified: string, prevMa
     icons: manifestIcons,
   };
   saveManifest(manifest);
-  console.log(`📋 Manifeste sauvegardé (${Object.keys(manifestIcons).length} entrées)`);
+  console.log(
+    `📋 Manifeste sauvegardé (${Object.keys(manifestIcons).length} entrées)`,
+  );
 }
 
 main().catch((err) => {

@@ -11,7 +11,7 @@
 
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { optimize, type Config } from "svgo";
+import { type Config, optimize } from "svgo";
 
 const SVG_DIR = join(import.meta.dirname!, "..", "svg");
 const VARIANTS = ["outlined", "filled", "duotone"] as const;
