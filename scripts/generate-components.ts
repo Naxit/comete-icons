@@ -51,6 +51,13 @@ const ICON_COLORS = [
   "night",
 ] as const;
 
+/** Sort icon names using natural/locale sort to match Biome's import ordering */
+function sortIconNames(names: string[]): string[] {
+  return [...names].sort((a, b) =>
+    a.localeCompare(b, "en", { sensitivity: "base" }),
+  );
+}
+
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
 /** Extract SVG inner content (everything between <svg> and </svg>) */
@@ -151,7 +158,7 @@ function buildIconMap(): IconMap {
 // ─── Generate types.ts ─────────────────────────────────────────────────────
 
 function generateTypes(iconNames: string[]): string {
-  const sorted = [...iconNames].sort();
+  const sorted = sortIconNames(iconNames);
   return `import type { SVGAttributes } from "react";
 
 export type IconSpacing = "default" | "none";
@@ -212,7 +219,7 @@ function generateCss(): string {
   ];
 
   for (const color of ICON_COLORS) {
-    lines.push(`.comete-icon--${color} { color: var(--icon-${color}); }`);
+    lines.push(`.comete-icon--${color} {\n  color: var(--icon-${color});\n}`);
   }
 
   lines.push("");
@@ -289,7 +296,7 @@ ${iconName}.displayName = "${iconName}";
 // ─── Generate registry ────────────────────────────────────────────────────
 
 function generateRegistry(iconNames: string[]): string {
-  const sorted = [...iconNames].sort();
+  const sorted = sortIconNames(iconNames);
   const lines = [
     "/* Auto-generated — do not edit manually */",
     'import type { ComponentType } from "react";',
@@ -298,8 +305,25 @@ function generateRegistry(iconNames: string[]): string {
     "",
   ];
 
+  const RESERVED = new Set([
+    "Error",
+    "Map",
+    "Number",
+    "String",
+    "Object",
+    "Array",
+    "Function",
+    "Symbol",
+    "Date",
+    "Promise",
+    "Set",
+  ]);
   for (const name of sorted) {
-    lines.push(`import { ${name} } from "./icons/${name}";`);
+    if (RESERVED.has(name)) {
+      lines.push(`import { ${name} as ${name}Icon } from "./icons/${name}";`);
+    } else {
+      lines.push(`import { ${name} } from "./icons/${name}";`);
+    }
   }
 
   lines.push("");
@@ -308,7 +332,11 @@ function generateRegistry(iconNames: string[]): string {
     "export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {",
   );
   for (const name of sorted) {
-    lines.push(`  ${name},`);
+    if (RESERVED.has(name)) {
+      lines.push(`  ${name}: ${name}Icon,`);
+    } else {
+      lines.push(`  ${name},`);
+    }
   }
   lines.push("};");
   lines.push("");
@@ -328,7 +356,7 @@ function generateIndex(iconNames: string[]): string {
     "// Icons",
   ];
 
-  for (const name of iconNames.sort()) {
+  for (const name of sortIconNames(iconNames)) {
     lines.push(`export { ${name} } from "./icons/${name}";`);
   }
 
