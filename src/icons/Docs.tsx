@@ -11,8 +11,8 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M11.2 8.8H4.8V7.2h6.4zm0 2.4H4.8V9.6h6.4zm-2.4 2.4h-4V12h4zm-6.73 1.93q.47.47 1.13.47h9.6q.66 0 1.13-.47t.47-1.13V4.8L9.6 0H3.2q-.66 0-1.13.47A1.54 1.54 0 0 0 1.6 1.6v12.8q0 .66.47 1.13M8.8 1.6v4h4z" clipRule="evenodd"/></> }
     },
     duotone: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M4.588 21.413Q5.175 22 6 22h12q.824 0 1.413-.587Q20 20.825 20 20V8l-6-6H6q-.824 0-1.412.587A1.93 1.93 0 0 0 4 4v16q0 .824.588 1.413M13 4v5h5v11H6V4z" clipRule="evenodd"/><path fill="#007ADA" d="M8 16h8v-2H8zm0 3h5v-2H8zm0-6h8v-2H8z"/></> },
-      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M2.07 15.53q.47.47 1.13.47h9.6q.66 0 1.13-.47t.47-1.13V4.8L9.6 0H3.2q-.66 0-1.13.47A1.54 1.54 0 0 0 1.6 1.6v12.8q0 .66.47 1.13M8.8 1.6v4h4v8.8H3.2V1.6z" clipRule="evenodd"/><path fill="#007ADA" d="M4.8 11.2h6.4V9.6H4.8zm0 2.4h4V12h-4zm0-4.8h6.4V7.2H4.8z"/></> }
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M4.588 21.413Q5.175 22 6 22h12q.824 0 1.413-.587Q20 20.825 20 20V8l-6-6H6q-.824 0-1.412.587A1.93 1.93 0 0 0 4 4v16q0 .824.588 1.413M13 4v5h5v11H6V4z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M8 16h8v-2H8zm0 3h5v-2H8zm0-6h8v-2H8z"/></> },
+      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M2.07 15.53q.47.47 1.13.47h9.6q.66 0 1.13-.47t.47-1.13V4.8L9.6 0H3.2q-.66 0-1.13.47A1.54 1.54 0 0 0 1.6 1.6v12.8q0 .66.47 1.13M8.8 1.6v4h4v8.8H3.2V1.6z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M4.8 11.2h6.4V9.6H4.8zm0 2.4h4V12h-4zm0-4.8h6.4V7.2H4.8z"/></> }
     }
 };
 

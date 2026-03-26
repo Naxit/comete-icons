@@ -44,8 +44,13 @@ comete-icons/
 
 ## Couleurs
 
-Les icônes utilisent `currentColor`. La prop `color` mappe vers les CSS custom properties
-de `@naxit/comete-design-tokens` : `--icon-default`, `--icon-success`, etc.
+**Règle absolue : ne jamais utiliser de couleur en dur (hex, rgb, etc.) dans les SVGs ou composants générés.** Toutes les couleurs doivent passer par des design tokens CSS (`var(--token)`). Si un token manque, demander à l'utilisateur avant de procéder.
+
+- **Outlined / Filled** : tous les tracés utilisent `currentColor` (contrôlé par la prop `color` → classe CSS → token `--icon-*`)
+- **Duotone** : deux couches de couleur :
+  - Tracés **primaires** (couleur Figma `#455D84` = `--icon-default`) → `currentColor`
+  - Tracés **secondaires** (couleur Figma `#007ADA` ≈ `--icon-information`) → `var(--icon-information)`
+- La prop `color` mappe vers les CSS custom properties de `@naxit/comete-design-tokens` : `--icon-default`, `--icon-success`, etc.
 
 ## Export incrémental
 

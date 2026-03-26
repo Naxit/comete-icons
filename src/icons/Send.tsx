@@ -11,8 +11,8 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" d="M0 14.737V9.684L6.737 8 0 6.316V1.263L16 8z"/></> }
     },
     duotone: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="#007ADA" d="M3 19.579V4.421l18 7.58zm1.895-2.842L16.12 12 4.895 7.263v3.316L10.579 12l-5.684 1.421z"/></> },
-      "none": { viewBox: "0 0 16 16", paths: <><path fill="#007ADA" d="M0 14.737V1.263L16 8zm1.684-2.526L11.664 8l-9.98-4.21v2.947L6.737 8 1.684 9.263z"/></> }
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="var(--icon-information)" d="M3 19.579V4.421l18 7.58zm1.895-2.842L16.12 12 4.895 7.263v3.316L10.579 12l-5.684 1.421z"/></> },
+      "none": { viewBox: "0 0 16 16", paths: <><path fill="var(--icon-information)" d="M0 14.737V1.263L16 8zm1.684-2.526L11.664 8l-9.98-4.21v2.947L6.737 8 1.684 9.263z"/></> }
     }
 };
 
