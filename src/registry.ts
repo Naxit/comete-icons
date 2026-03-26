@@ -1,5 +1,8 @@
 /* Auto-generated — do not edit manually */
 import type { ComponentType } from "react";
+import type { IconName } from "./types";
+import type { IconProps } from "./types";
+
 import { AccentDot } from "./icons/AccentDot";
 import { Accessibility } from "./icons/Accessibility";
 import { Add } from "./icons/Add";
@@ -14,6 +17,7 @@ import { Ai } from "./icons/Ai";
 import { Alarm } from "./icons/Alarm";
 import { AlarmHandled } from "./icons/AlarmHandled";
 import { AlarmPostponed } from "./icons/AlarmPostponed";
+import { AlternateEmail } from "./icons/AlternateEmail";
 import { Api } from "./icons/Api";
 import { Archive } from "./icons/Archive";
 import { ArrowBack } from "./icons/ArrowBack";
@@ -26,10 +30,10 @@ import { ArrowPositive } from "./icons/ArrowPositive";
 import { AttachFile } from "./icons/AttachFile";
 import { AttachFileAdd } from "./icons/AttachFileAdd";
 import { AttachFileOff } from "./icons/AttachFileOff";
-import { Autorenew } from "./icons/Autorenew";
 import { AutoStories } from "./icons/AutoStories";
-import { Badge } from "./icons/Badge";
+import { Autorenew } from "./icons/Autorenew";
 import { BadMood } from "./icons/BadMood";
+import { Badge } from "./icons/Badge";
 import { BarChart } from "./icons/BarChart";
 import { BillPackages } from "./icons/BillPackages";
 import { Block } from "./icons/Block";
@@ -68,10 +72,10 @@ import { ClockingIn } from "./icons/ClockingIn";
 import { ClockingLate } from "./icons/ClockingLate";
 import { ClockingOut } from "./icons/ClockingOut";
 import { ClockingOutOfArea } from "./icons/ClockingOutOfArea";
-import { Clockings } from "./icons/Clockings";
-import { ClockingsValid } from "./icons/ClockingsValid";
 import { ClockingWithGeolocation } from "./icons/ClockingWithGeolocation";
 import { ClockingWithoutGeolocation } from "./icons/ClockingWithoutGeolocation";
+import { Clockings } from "./icons/Clockings";
+import { ClockingsValid } from "./icons/ClockingsValid";
 import { CloseCritical } from "./icons/CloseCritical";
 import { CloseSmallCritical } from "./icons/CloseSmallCritical";
 import { CloseSmallFaded } from "./icons/CloseSmallFaded";
@@ -127,7 +131,7 @@ import { EditNote } from "./icons/EditNote";
 import { EditorSearch } from "./icons/EditorSearch";
 import { Email } from "./icons/Email";
 import { Emergency } from "./icons/Emergency";
-import { Error as ErrorIcon } from "./icons/Error";
+import { Error } from "./icons/Error";
 import { EventAvailable } from "./icons/EventAvailable";
 import { EventBusy } from "./icons/EventBusy";
 import { EventUpcoming } from "./icons/EventUpcoming";
@@ -150,6 +154,7 @@ import { FlipToFront } from "./icons/FlipToFront";
 import { Folder } from "./icons/Folder";
 import { FolderManaged } from "./icons/FolderManaged";
 import { FollowUp } from "./icons/FollowUp";
+import { FormEdit } from "./icons/FormEdit";
 import { FormatAlignCenter } from "./icons/FormatAlignCenter";
 import { FormatAlignJustify } from "./icons/FormatAlignJustify";
 import { FormatAlignLeft } from "./icons/FormatAlignLeft";
@@ -158,7 +163,6 @@ import { FormatBold } from "./icons/FormatBold";
 import { FormatItalic } from "./icons/FormatItalic";
 import { FormatParagraph } from "./icons/FormatParagraph";
 import { FormatUnderline } from "./icons/FormatUnderline";
-import { FormEdit } from "./icons/FormEdit";
 import { FrameInspect } from "./icons/FrameInspect";
 import { FullCoverage } from "./icons/FullCoverage";
 import { FullScreen } from "./icons/FullScreen";
@@ -173,6 +177,7 @@ import { Home } from "./icons/Home";
 import { IdCard } from "./icons/IdCard";
 import { Image } from "./icons/Image";
 import { ImageImport } from "./icons/ImageImport";
+import { ImportanceMedium } from "./icons/ImportanceMedium";
 import { IndeterminateQuestionBox } from "./icons/IndeterminateQuestionBox";
 import { Info } from "./icons/Info";
 import { InsertPageBreak } from "./icons/InsertPageBreak";
@@ -180,11 +185,11 @@ import { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 import { InvoiceCancellation } from "./icons/InvoiceCancellation";
 import { InvoiceCredit } from "./icons/InvoiceCredit";
 import { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
+import { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
+import { InvoiceValidation } from "./icons/InvoiceValidation";
 import { Invoices } from "./icons/Invoices";
 import { InvoicesExport } from "./icons/InvoicesExport";
 import { InvoicesProofs } from "./icons/InvoicesProofs";
-import { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
-import { InvoiceValidation } from "./icons/InvoiceValidation";
 import { IosShare } from "./icons/IosShare";
 import { JobSearch } from "./icons/JobSearch";
 import { JoinInner } from "./icons/JoinInner";
@@ -216,7 +221,7 @@ import { ManageClientPayments } from "./icons/ManageClientPayments";
 import { ManageHistory } from "./icons/ManageHistory";
 import { Manager } from "./icons/Manager";
 import { Manufacturing } from "./icons/Manufacturing";
-import { Map as MapIcon } from "./icons/Map";
+import { Map } from "./icons/Map";
 import { Maximize } from "./icons/Maximize";
 import { MedicalInformation } from "./icons/MedicalInformation";
 import { Menu } from "./icons/Menu";
@@ -281,8 +286,8 @@ import { PrintResourceSchedule } from "./icons/PrintResourceSchedule";
 import { PrintSettings } from "./icons/PrintSettings";
 import { PrintSiteSchedule } from "./icons/PrintSiteSchedule";
 import { Publish } from "./icons/Publish";
-import { Published } from "./icons/Published";
 import { PublishSchedule } from "./icons/PublishSchedule";
+import { Published } from "./icons/Published";
 import { Quote } from "./icons/Quote";
 import { QuoteToOrder } from "./icons/QuoteToOrder";
 import { RadioButtonChecked } from "./icons/RadioButtonChecked";
@@ -321,8 +326,8 @@ import { Send } from "./icons/Send";
 import { SendDocumentToSign } from "./icons/SendDocumentToSign";
 import { Settings } from "./icons/Settings";
 import { SettingsBackupRestore } from "./icons/SettingsBackupRestore";
-import { SettlementsOfDebtorClients } from "./icons/SettlementsOfDebtorClients";
 import { SettleOrder } from "./icons/SettleOrder";
+import { SettlementsOfDebtorClients } from "./icons/SettlementsOfDebtorClients";
 import { Shelves } from "./icons/Shelves";
 import { ShoppingCart } from "./icons/ShoppingCart";
 import { ShowArchives } from "./icons/ShowArchives";
@@ -359,8 +364,8 @@ import { UnarchivedServices } from "./icons/UnarchivedServices";
 import { UnavailabilitiesSettings } from "./icons/UnavailabilitiesSettings";
 import { Undo } from "./icons/Undo";
 import { Unpublish } from "./icons/Unpublish";
-import { Unpublished } from "./icons/Unpublished";
 import { UnpublishSchedule } from "./icons/UnpublishSchedule";
+import { Unpublished } from "./icons/Unpublished";
 import { UnvaluedBillableRates } from "./icons/UnvaluedBillableRates";
 import { UnvaluesCharges } from "./icons/UnvaluesCharges";
 import { Update } from "./icons/Update";
@@ -380,7 +385,6 @@ import { Work } from "./icons/Work";
 import { Workspaces } from "./icons/Workspaces";
 import { Zip } from "./icons/Zip";
 import { ZoomOutMap } from "./icons/ZoomOutMap";
-import type { IconName, IconProps } from "./types";
 
 /** Maps every icon name to its React component. */
 export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
@@ -398,6 +402,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Alarm,
   AlarmHandled,
   AlarmPostponed,
+  AlternateEmail,
   Api,
   Archive,
   ArrowBack,
@@ -511,7 +516,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   EditorSearch,
   Email,
   Emergency,
-  Error: ErrorIcon,
+  Error,
   EventAvailable,
   EventBusy,
   EventUpcoming,
@@ -557,6 +562,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   IdCard,
   Image,
   ImageImport,
+  ImportanceMedium,
   IndeterminateQuestionBox,
   Info,
   InsertPageBreak,
@@ -600,7 +606,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ManageHistory,
   Manager,
   Manufacturing,
-  Map: MapIcon,
+  Map,
   Maximize,
   MedicalInformation,
   Menu,

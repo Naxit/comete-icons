@@ -303,9 +303,7 @@ function generateRegistry(iconNames: string[]): string {
   }
 
   lines.push("");
-  lines.push(
-    "/** Maps every icon name to its React component. */",
-  );
+  lines.push("/** Maps every icon name to its React component. */");
   lines.push(
     "export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {",
   );
@@ -384,7 +382,11 @@ function main() {
   console.log("   ✓ styles/icons.css");
 
   // Generate registry (maps icon names to components)
-  writeFileSync(join(SRC_DIR, "registry.ts"), generateRegistry(iconNames), "utf-8");
+  writeFileSync(
+    join(SRC_DIR, "registry.ts"),
+    generateRegistry(iconNames),
+    "utf-8",
+  );
   console.log("   ✓ registry.ts");
 
   // Generate barrel
