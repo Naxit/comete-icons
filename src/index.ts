@@ -385,6 +385,8 @@ export { Workspaces } from "./icons/Workspaces";
 export { Zip } from "./icons/Zip";
 export { ZoomOutMap } from "./icons/ZoomOutMap";
 // Types
-export type { IconColor, IconProps, IconSpacing, IconVariant } from "./types";
+export type { IconColor, IconName, IconProps, IconSpacing, IconVariant } from "./types";
 // Utils
 export { getIconClass } from "./utils";
+// Registry
+export { iconRegistry } from "./registry";
