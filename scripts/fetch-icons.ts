@@ -96,14 +96,25 @@ function saveManifest(manifest: Manifest): void {
 }
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
-async function figmaGet<T>(path: string): Promise<T> {
-  const res = await fetch(`https://api.figma.com/v1${path}`, {
-    headers: { "X-Figma-Token": FIGMA_TOKEN! },
-  });
-  if (!res.ok) {
-    throw new Error(`Figma API ${res.status}: ${await res.text()}`);
+async function figmaGet<T>(path: string, retries = 3): Promise<T> {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const res = await fetch(`https://api.figma.com/v1${path}`, {
+      headers: { "X-Figma-Token": FIGMA_TOKEN! },
+    });
+    if (res.status === 429 && attempt < retries) {
+      const wait = 2 ** (attempt + 1) * 15_000; // 30s, 60s, 120s
+      console.warn(
+        `⏳ Rate limited, waiting ${Math.round(wait / 1000)}s before retry…`,
+      );
+      await new Promise((r) => setTimeout(r, wait));
+      continue;
+    }
+    if (!res.ok) {
+      throw new Error(`Figma API ${res.status}: ${await res.text()}`);
+    }
+    return res.json() as Promise<T>;
   }
-  return res.json() as Promise<T>;
+  throw new Error("Figma API: max retries exceeded");
 }
 
 function parseVariantProps(name: string): Record<string, string> {
