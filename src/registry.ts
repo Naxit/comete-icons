@@ -1,8 +1,5 @@
 /* Auto-generated — do not edit manually */
 import type { ComponentType } from "react";
-import type { IconName } from "./types";
-import type { IconProps } from "./types";
-
 import { AccentDot } from "./icons/AccentDot";
 import { Accessibility } from "./icons/Accessibility";
 import { Add } from "./icons/Add";
@@ -30,10 +27,10 @@ import { ArrowPositive } from "./icons/ArrowPositive";
 import { AttachFile } from "./icons/AttachFile";
 import { AttachFileAdd } from "./icons/AttachFileAdd";
 import { AttachFileOff } from "./icons/AttachFileOff";
-import { AutoStories } from "./icons/AutoStories";
 import { Autorenew } from "./icons/Autorenew";
-import { BadMood } from "./icons/BadMood";
+import { AutoStories } from "./icons/AutoStories";
 import { Badge } from "./icons/Badge";
+import { BadMood } from "./icons/BadMood";
 import { BarChart } from "./icons/BarChart";
 import { BillPackages } from "./icons/BillPackages";
 import { Block } from "./icons/Block";
@@ -72,10 +69,10 @@ import { ClockingIn } from "./icons/ClockingIn";
 import { ClockingLate } from "./icons/ClockingLate";
 import { ClockingOut } from "./icons/ClockingOut";
 import { ClockingOutOfArea } from "./icons/ClockingOutOfArea";
-import { ClockingWithGeolocation } from "./icons/ClockingWithGeolocation";
-import { ClockingWithoutGeolocation } from "./icons/ClockingWithoutGeolocation";
 import { Clockings } from "./icons/Clockings";
 import { ClockingsValid } from "./icons/ClockingsValid";
+import { ClockingWithGeolocation } from "./icons/ClockingWithGeolocation";
+import { ClockingWithoutGeolocation } from "./icons/ClockingWithoutGeolocation";
 import { CloseCritical } from "./icons/CloseCritical";
 import { CloseSmallCritical } from "./icons/CloseSmallCritical";
 import { CloseSmallFaded } from "./icons/CloseSmallFaded";
@@ -131,7 +128,7 @@ import { EditNote } from "./icons/EditNote";
 import { EditorSearch } from "./icons/EditorSearch";
 import { Email } from "./icons/Email";
 import { Emergency } from "./icons/Emergency";
-import { Error } from "./icons/Error";
+import { Error as ErrorIcon } from "./icons/Error";
 import { EventAvailable } from "./icons/EventAvailable";
 import { EventBusy } from "./icons/EventBusy";
 import { EventUpcoming } from "./icons/EventUpcoming";
@@ -154,7 +151,6 @@ import { FlipToFront } from "./icons/FlipToFront";
 import { Folder } from "./icons/Folder";
 import { FolderManaged } from "./icons/FolderManaged";
 import { FollowUp } from "./icons/FollowUp";
-import { FormEdit } from "./icons/FormEdit";
 import { FormatAlignCenter } from "./icons/FormatAlignCenter";
 import { FormatAlignJustify } from "./icons/FormatAlignJustify";
 import { FormatAlignLeft } from "./icons/FormatAlignLeft";
@@ -163,6 +159,7 @@ import { FormatBold } from "./icons/FormatBold";
 import { FormatItalic } from "./icons/FormatItalic";
 import { FormatParagraph } from "./icons/FormatParagraph";
 import { FormatUnderline } from "./icons/FormatUnderline";
+import { FormEdit } from "./icons/FormEdit";
 import { FrameInspect } from "./icons/FrameInspect";
 import { FullCoverage } from "./icons/FullCoverage";
 import { FullScreen } from "./icons/FullScreen";
@@ -185,11 +182,11 @@ import { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 import { InvoiceCancellation } from "./icons/InvoiceCancellation";
 import { InvoiceCredit } from "./icons/InvoiceCredit";
 import { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
-import { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
-import { InvoiceValidation } from "./icons/InvoiceValidation";
 import { Invoices } from "./icons/Invoices";
 import { InvoicesExport } from "./icons/InvoicesExport";
 import { InvoicesProofs } from "./icons/InvoicesProofs";
+import { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
+import { InvoiceValidation } from "./icons/InvoiceValidation";
 import { IosShare } from "./icons/IosShare";
 import { JobSearch } from "./icons/JobSearch";
 import { JoinInner } from "./icons/JoinInner";
@@ -221,7 +218,7 @@ import { ManageClientPayments } from "./icons/ManageClientPayments";
 import { ManageHistory } from "./icons/ManageHistory";
 import { Manager } from "./icons/Manager";
 import { Manufacturing } from "./icons/Manufacturing";
-import { Map } from "./icons/Map";
+import { Map as MapIcon } from "./icons/Map";
 import { Maximize } from "./icons/Maximize";
 import { MedicalInformation } from "./icons/MedicalInformation";
 import { Menu } from "./icons/Menu";
@@ -286,8 +283,8 @@ import { PrintResourceSchedule } from "./icons/PrintResourceSchedule";
 import { PrintSettings } from "./icons/PrintSettings";
 import { PrintSiteSchedule } from "./icons/PrintSiteSchedule";
 import { Publish } from "./icons/Publish";
-import { PublishSchedule } from "./icons/PublishSchedule";
 import { Published } from "./icons/Published";
+import { PublishSchedule } from "./icons/PublishSchedule";
 import { Quote } from "./icons/Quote";
 import { QuoteToOrder } from "./icons/QuoteToOrder";
 import { RadioButtonChecked } from "./icons/RadioButtonChecked";
@@ -326,8 +323,8 @@ import { Send } from "./icons/Send";
 import { SendDocumentToSign } from "./icons/SendDocumentToSign";
 import { Settings } from "./icons/Settings";
 import { SettingsBackupRestore } from "./icons/SettingsBackupRestore";
-import { SettleOrder } from "./icons/SettleOrder";
 import { SettlementsOfDebtorClients } from "./icons/SettlementsOfDebtorClients";
+import { SettleOrder } from "./icons/SettleOrder";
 import { Shelves } from "./icons/Shelves";
 import { ShoppingCart } from "./icons/ShoppingCart";
 import { ShowArchives } from "./icons/ShowArchives";
@@ -364,8 +361,8 @@ import { UnarchivedServices } from "./icons/UnarchivedServices";
 import { UnavailabilitiesSettings } from "./icons/UnavailabilitiesSettings";
 import { Undo } from "./icons/Undo";
 import { Unpublish } from "./icons/Unpublish";
-import { UnpublishSchedule } from "./icons/UnpublishSchedule";
 import { Unpublished } from "./icons/Unpublished";
+import { UnpublishSchedule } from "./icons/UnpublishSchedule";
 import { UnvaluedBillableRates } from "./icons/UnvaluedBillableRates";
 import { UnvaluesCharges } from "./icons/UnvaluesCharges";
 import { Update } from "./icons/Update";
@@ -385,6 +382,7 @@ import { Work } from "./icons/Work";
 import { Workspaces } from "./icons/Workspaces";
 import { Zip } from "./icons/Zip";
 import { ZoomOutMap } from "./icons/ZoomOutMap";
+import type { IconName, IconProps } from "./types";
 
 /** Maps every icon name to its React component. */
 export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
@@ -415,10 +413,10 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   AttachFile,
   AttachFileAdd,
   AttachFileOff,
-  AutoStories,
   Autorenew,
-  BadMood,
+  AutoStories,
   Badge,
+  BadMood,
   BarChart,
   BillPackages,
   Block,
@@ -457,10 +455,10 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ClockingLate,
   ClockingOut,
   ClockingOutOfArea,
-  ClockingWithGeolocation,
-  ClockingWithoutGeolocation,
   Clockings,
   ClockingsValid,
+  ClockingWithGeolocation,
+  ClockingWithoutGeolocation,
   CloseCritical,
   CloseSmallCritical,
   CloseSmallFaded,
@@ -516,7 +514,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   EditorSearch,
   Email,
   Emergency,
-  Error,
+  Error: ErrorIcon,
   EventAvailable,
   EventBusy,
   EventUpcoming,
@@ -539,7 +537,6 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Folder,
   FolderManaged,
   FollowUp,
-  FormEdit,
   FormatAlignCenter,
   FormatAlignJustify,
   FormatAlignLeft,
@@ -548,6 +545,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   FormatItalic,
   FormatParagraph,
   FormatUnderline,
+  FormEdit,
   FrameInspect,
   FullCoverage,
   FullScreen,
@@ -569,12 +567,12 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   InvoiceBillableClients,
   InvoiceCancellation,
   InvoiceCredit,
-  InvoiceStatusCheck,
-  InvoiceToApprovedPlatform,
-  InvoiceValidation,
   Invoices,
   InvoicesExport,
   InvoicesProofs,
+  InvoiceStatusCheck,
+  InvoiceToApprovedPlatform,
+  InvoiceValidation,
   IosShare,
   JobSearch,
   JoinInner,
@@ -606,7 +604,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ManageHistory,
   Manager,
   Manufacturing,
-  Map,
+  Map: MapIcon,
   Maximize,
   MedicalInformation,
   Menu,
@@ -671,8 +669,8 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   PrintSettings,
   PrintSiteSchedule,
   Publish,
-  PublishSchedule,
   Published,
+  PublishSchedule,
   Quote,
   QuoteToOrder,
   RadioButtonChecked,
@@ -688,8 +686,8 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Report,
   ResourceAlarm,
   ResourcePin,
-  ResourceSectorsFilter,
   ResourcesBonuses,
+  ResourceSectorsFilter,
   Reviews,
   SalesActions,
   Save,
@@ -711,8 +709,8 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   SendDocumentToSign,
   Settings,
   SettingsBackupRestore,
-  SettleOrder,
   SettlementsOfDebtorClients,
+  SettleOrder,
   Shelves,
   ShoppingCart,
   ShowArchives,
@@ -749,8 +747,8 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   UnavailabilitiesSettings,
   Undo,
   Unpublish,
-  UnpublishSchedule,
   Unpublished,
+  UnpublishSchedule,
   UnvaluedBillableRates,
   UnvaluesCharges,
   Update,
