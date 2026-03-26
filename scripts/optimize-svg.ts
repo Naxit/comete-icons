@@ -24,6 +24,15 @@ const VARIANTS = ["outlined", "filled", "duotone"] as const;
  */
 const DUOTONE_PRIMARY_COLOR = "#455D84";
 
+/**
+ * Mapping of Figma hardcoded colors to design token CSS custom properties.
+ * Used in duotone SVGs to replace secondary accent colors with token references.
+ * RULE: Never use hardcoded colors — always map to design tokens.
+ */
+const DUOTONE_COLOR_TO_TOKEN: Record<string, string> = {
+  "#007ada": "var(--icon-information)",
+};
+
 /** Base SVGO config shared by outlined/filled variants (all colors → currentColor) */
 const baseConfig: Config = {
   multipass: true,
@@ -76,17 +85,22 @@ const duotoneConfig: Config = {
       },
     },
     "removeDimensions",
-    // Custom plugin: only convert the primary color to currentColor
+    // Custom plugin: convert primary color to currentColor,
+    // and map secondary colors to design token CSS custom properties
     {
-      name: "duotone-primary-to-currentColor",
+      name: "duotone-colors-to-tokens",
       fn: () => ({
         element: {
           enter: (node) => {
             const primaryLower = DUOTONE_PRIMARY_COLOR.toLowerCase();
             for (const attr of ["fill", "stroke"] as const) {
               const value = node.attributes[attr];
-              if (value && value.toLowerCase() === primaryLower) {
+              if (!value) continue;
+              const lower = value.toLowerCase();
+              if (lower === primaryLower) {
                 node.attributes[attr] = "currentColor";
+              } else if (DUOTONE_COLOR_TO_TOKEN[lower]) {
+                node.attributes[attr] = DUOTONE_COLOR_TO_TOKEN[lower];
               }
             }
           },
