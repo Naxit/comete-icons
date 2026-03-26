@@ -37,6 +37,7 @@ const ICON_COLORS = [
   "default",
   "disabled",
   "inverted",
+  "on-warning",
   "warning",
   "critical",
   "success",
@@ -149,7 +150,8 @@ function buildIconMap(): IconMap {
 
 // ─── Generate types.ts ─────────────────────────────────────────────────────
 
-function generateTypes(): string {
+function generateTypes(iconNames: string[]): string {
+  const sorted = [...iconNames].sort();
   return `import type { SVGAttributes } from "react";
 
 export type IconSpacing = "default" | "none";
@@ -158,6 +160,10 @@ export type IconVariant = "outlined" | "filled" | "duotone";
 
 export type IconColor =
 ${ICON_COLORS.map((c) => `  | "${c}"`).join("\n")};
+
+/** Union of every available icon name (auto-generated from SVG sources). */
+export type IconName =
+${sorted.map((n) => `  | "${n}"`).join("\n")};
 
 export interface IconProps extends Omit<SVGAttributes<SVGSVGElement>, "color"> {
   /**
@@ -280,6 +286,38 @@ ${iconName}.displayName = "${iconName}";
 `;
 }
 
+// ─── Generate registry ────────────────────────────────────────────────────
+
+function generateRegistry(iconNames: string[]): string {
+  const sorted = [...iconNames].sort();
+  const lines = [
+    "/* Auto-generated — do not edit manually */",
+    'import type { ComponentType } from "react";',
+    'import type { IconName } from "./types";',
+    'import type { IconProps } from "./types";',
+    "",
+  ];
+
+  for (const name of sorted) {
+    lines.push(`import { ${name} } from "./icons/${name}";`);
+  }
+
+  lines.push("");
+  lines.push(
+    "/** Maps every icon name to its React component. */",
+  );
+  lines.push(
+    "export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {",
+  );
+  for (const name of sorted) {
+    lines.push(`  ${name},`);
+  }
+  lines.push("};");
+  lines.push("");
+
+  return lines.join("\n");
+}
+
 // ─── Generate barrel index ─────────────────────────────────────────────────
 
 function generateIndex(iconNames: string[]): string {
@@ -289,12 +327,6 @@ function generateIndex(iconNames: string[]): string {
     "// Styles",
     'import "./styles/icons.css";',
     "",
-    "// Types",
-    'export type { IconProps, IconSpacing, IconVariant, IconColor } from "./types";',
-    "",
-    "// Utils",
-    'export { getIconClass } from "./utils";',
-    "",
     "// Icons",
   ];
 
@@ -303,6 +335,18 @@ function generateIndex(iconNames: string[]): string {
   }
 
   lines.push("");
+  lines.push("// Types");
+  lines.push(
+    'export type { IconProps, IconSpacing, IconVariant, IconColor, IconName } from "./types";',
+  );
+  lines.push("");
+  lines.push("// Utils");
+  lines.push('export { getIconClass } from "./utils";');
+  lines.push("");
+  lines.push("// Registry");
+  lines.push('export { iconRegistry } from "./registry";');
+  lines.push("");
+
   return lines.join("\n");
 }
 
@@ -318,16 +362,7 @@ function main() {
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
   }
 
-  // Generate types + utils
-  writeFileSync(join(SRC_DIR, "types.ts"), generateTypes(), "utf-8");
-  writeFileSync(join(SRC_DIR, "utils.ts"), generateUtils(), "utf-8");
-  console.log("   ✓ types.ts + utils.ts");
-
-  // Generate CSS
-  writeFileSync(join(STYLES_DIR, "icons.css"), generateCss(), "utf-8");
-  console.log("   ✓ styles/icons.css");
-
-  // Generate components
+  // Generate components first to collect icon names
   const iconNames: string[] = [];
   for (const [name, variants] of iconMap) {
     writeFileSync(
@@ -338,6 +373,19 @@ function main() {
     iconNames.push(name);
   }
   console.log(`   ✓ ${iconNames.length} icon components`);
+
+  // Generate types + utils (types needs iconNames for IconName union)
+  writeFileSync(join(SRC_DIR, "types.ts"), generateTypes(iconNames), "utf-8");
+  writeFileSync(join(SRC_DIR, "utils.ts"), generateUtils(), "utf-8");
+  console.log("   ✓ types.ts + utils.ts");
+
+  // Generate CSS
+  writeFileSync(join(STYLES_DIR, "icons.css"), generateCss(), "utf-8");
+  console.log("   ✓ styles/icons.css");
+
+  // Generate registry (maps icon names to components)
+  writeFileSync(join(SRC_DIR, "registry.ts"), generateRegistry(iconNames), "utf-8");
+  console.log("   ✓ registry.ts");
 
   // Generate barrel
   writeFileSync(join(SRC_DIR, "index.ts"), generateIndex(iconNames), "utf-8");
