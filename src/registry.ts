@@ -10,7 +10,7 @@ import { AdvancePaymentsExport } from "./icons/AdvancePaymentsExport";
 import { Affect } from "./icons/Affect";
 import { Agency } from "./icons/Agency";
 import { Agent } from "./icons/Agent";
-import { Ai } from "./icons/Ai";
+import { Ai } from "./icons/Sparkle";
 import { Alarm } from "./icons/Alarm";
 import { AlarmHandled } from "./icons/AlarmHandled";
 import { AlarmPostponed } from "./icons/AlarmPostponed";

@@ -16,7 +16,7 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
     }
 };
 
-export function Ai({
+export function Sparkle({
   size = 24,
   spacing = "default",
   variant = "outlined",
@@ -43,4 +43,4 @@ export function Ai({
   );
 }
 
-Ai.displayName = "Ai";
+Sparkle.displayName = "Sparkle";
