@@ -14,7 +14,7 @@ export { AdvancePaymentsExport } from "./icons/AdvancePaymentsExport";
 export { Affect } from "./icons/Affect";
 export { Agency } from "./icons/Agency";
 export { Agent } from "./icons/Agent";
-export { Ai } from "./icons/Sparkle";
+export { Sparkle } from "./icons/Sparkle";
 export { Alarm } from "./icons/Alarm";
 export { AlarmHandled } from "./icons/AlarmHandled";
 export { AlarmPostponed } from "./icons/AlarmPostponed";

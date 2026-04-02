@@ -33,7 +33,7 @@ export type IconName =
   | "Affect"
   | "Agency"
   | "Agent"
-  | "Ai"
+  | "Sparkle"
   | "Alarm"
   | "AlarmHandled"
   | "AlarmPostponed"
