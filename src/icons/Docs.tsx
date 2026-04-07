@@ -3,16 +3,16 @@ import { getIconClass } from "../utils";
 
 const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX.Element }>> = {
     outlined: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" d="M8 13h8v-2H8zm0 3h8v-2H8zm0 3h5v-2H8zm-2 3q-.824 0-1.412-.587A1.93 1.93 0 0 1 4 20V4q0-.824.588-1.412A1.93 1.93 0 0 1 6 2h8l6 6v12q0 .824-.587 1.413A1.93 1.93 0 0 1 18 22zm7-13V4H6v16h12V9z"/></> },
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" d="M8.5 12.9h7v-1.8h-7zm0 2.7h7v-1.8h-7zm0 2.7h4.375v-1.8H8.5zM6.75 21q-.721 0-1.236-.529A1.76 1.76 0 0 1 5 19.2V4.8q0-.743.514-1.271A1.66 1.66 0 0 1 6.75 3h7L19 8.4v10.8q0 .743-.514 1.271A1.66 1.66 0 0 1 17.25 21zm6.125-11.7V4.8H6.75v14.4h10.5V9.3z"/></> },
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" d="M4.8 8.8h6.4V7.2H4.8zm0 2.4h6.4V9.6H4.8zm0 2.4h4V12h-4zM3.2 16a1.54 1.54 0 0 1-1.13-.47 1.54 1.54 0 0 1-.47-1.13V1.6q0-.66.47-1.13A1.54 1.54 0 0 1 3.2 0h6.4l4.8 4.8v9.6q0 .66-.47 1.13a1.54 1.54 0 0 1-1.13.47zM8.8 5.6v-4H3.2v12.8h9.6V5.6z"/></> }
     },
     filled: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M16 13H8v-2h8zm0 3H8v-2h8zm-3 3H8v-2h5zm-8.412 2.413Q5.175 22 6 22h12q.824 0 1.413-.587Q20 20.825 20 20V8l-6-6H6q-.824 0-1.412.587A1.93 1.93 0 0 0 4 4v16q0 .824.588 1.413M13 4v5h5z" clipRule="evenodd"/></> },
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M15.5 12.9h-7v-1.8h7zm0 2.7h-7v-1.8h7zm-2.625 2.7H8.5v-1.8h4.375zm-7.36 2.171q.513.53 1.235.529h10.5q.721 0 1.236-.529Q19 19.943 19 19.2V8.4L13.75 3h-7q-.721 0-1.236.529A1.76 1.76 0 0 0 5 4.8v14.4q0 .743.514 1.271M12.874 4.8v4.5h4.375z" clipRule="evenodd"/></> },
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M11.2 8.8H4.8V7.2h6.4zm0 2.4H4.8V9.6h6.4zm-2.4 2.4h-4V12h4zm-6.73 1.93q.47.47 1.13.47h9.6q.66 0 1.13-.47t.47-1.13V4.8L9.6 0H3.2q-.66 0-1.13.47A1.54 1.54 0 0 0 1.6 1.6v12.8q0 .66.47 1.13M8.8 1.6v4h4z" clipRule="evenodd"/></> }
     },
     duotone: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M4.588 21.413Q5.175 22 6 22h12q.824 0 1.413-.587Q20 20.825 20 20V8l-6-6H6q-.824 0-1.412.587A1.93 1.93 0 0 0 4 4v16q0 .824.588 1.413M13 4v5h5v11H6V4z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M8 16h8v-2H8zm0 3h5v-2H8zm0-6h8v-2H8z"/></> },
-      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M2.07 15.53q.47.47 1.13.47h9.6q.66 0 1.13-.47t.47-1.13V4.8L9.6 0H3.2q-.66 0-1.13.47A1.54 1.54 0 0 0 1.6 1.6v12.8q0 .66.47 1.13M8.8 1.6v4h4v8.8H3.2V1.6z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M4.8 11.2h6.4V9.6H4.8zm0 2.4h4V12h-4zm0-4.8h6.4V7.2H4.8z"/></> }
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M5.514 20.471q.514.53 1.236.529h10.5q.721 0 1.236-.529Q19 19.943 19 19.2V8.4L13.75 3h-7q-.721 0-1.236.529A1.76 1.76 0 0 0 5 4.8v14.4q0 .743.514 1.271M12.875 4.8v4.5h4.375v9.9H6.75V4.8z" clipRule="evenodd"/><path fill="#0076D8" d="M8.5 15.6h7v-1.8h-7zm0 2.7h4.375v-1.8H8.5zm0-5.4h7v-1.8h-7z"/></> },
+      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M2.07 15.53q.47.47 1.13.47h9.6q.66 0 1.13-.47t.47-1.13V4.8L9.6 0H3.2q-.66 0-1.13.47A1.54 1.54 0 0 0 1.6 1.6v12.8q0 .66.47 1.13M8.8 1.6v4h4v8.8H3.2V1.6z" clipRule="evenodd"/><path fill="#0076D8" d="M4.8 11.2h6.4V9.6H4.8zm0 2.4h4V12h-4zm0-4.8h6.4V7.2H4.8z"/></> }
     }
 };
 

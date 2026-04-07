@@ -1,10 +1,15 @@
 /* Auto-generated — do not edit manually */
 import type { ComponentType } from "react";
+import type { IconName } from "./types";
+import type { IconProps } from "./types";
+
 import { AccentDot } from "./icons/AccentDot";
 import { Accessibility } from "./icons/Accessibility";
 import { Add } from "./icons/Add";
 import { AddBox } from "./icons/AddBox";
+import { AddComments } from "./icons/AddComments";
 import { AddPhoto } from "./icons/AddPhoto";
+import { AddText } from "./icons/AddText";
 import { Administrator } from "./icons/Administrator";
 import { AdvancePaymentsExport } from "./icons/AdvancePaymentsExport";
 import { Affect } from "./icons/Affect";
@@ -49,6 +54,7 @@ import { CalendarToday } from "./icons/CalendarToday";
 import { Call } from "./icons/Call";
 import { Camera } from "./icons/Camera";
 import { Cameraswitch } from "./icons/Cameraswitch";
+import { Campaign } from "./icons/Campaign";
 import { Cancel } from "./icons/Cancel";
 import { Category } from "./icons/Category";
 import { ChangeHistory } from "./icons/ChangeHistory";
@@ -180,10 +186,10 @@ import { InsertPageBreak } from "./icons/InsertPageBreak";
 import { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 import { InvoiceCancellation } from "./icons/InvoiceCancellation";
 import { InvoiceCredit } from "./icons/InvoiceCredit";
-import { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 import { Invoices } from "./icons/Invoices";
 import { InvoicesExport } from "./icons/InvoicesExport";
 import { InvoicesProofs } from "./icons/InvoicesProofs";
+import { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 import { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
 import { InvoiceValidation } from "./icons/InvoiceValidation";
 import { IosShare } from "./icons/IosShare";
@@ -299,8 +305,8 @@ import { RemoveSelection } from "./icons/RemoveSelection";
 import { Report } from "./icons/Report";
 import { ResourceAlarm } from "./icons/ResourceAlarm";
 import { ResourcePin } from "./icons/ResourcePin";
-import { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 import { ResourcesBonuses } from "./icons/ResourcesBonuses";
+import { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 import { Reviews } from "./icons/Reviews";
 import { SalesActions } from "./icons/SalesActions";
 import { Save } from "./icons/Save";
@@ -366,6 +372,7 @@ import { UnpublishSchedule } from "./icons/UnpublishSchedule";
 import { UnvaluedBillableRates } from "./icons/UnvaluedBillableRates";
 import { UnvaluesCharges } from "./icons/UnvaluesCharges";
 import { Update } from "./icons/Update";
+import { UploadFile } from "./icons/UploadFile";
 import { ValidatedInvoices } from "./icons/ValidatedInvoices";
 import { VerySatisfied } from "./icons/VerySatisfied";
 import { Visibility } from "./icons/Visibility";
@@ -382,7 +389,6 @@ import { Work } from "./icons/Work";
 import { Workspaces } from "./icons/Workspaces";
 import { Zip } from "./icons/Zip";
 import { ZoomOutMap } from "./icons/ZoomOutMap";
-import type { IconName, IconProps } from "./types";
 
 /** Maps every icon name to its React component. */
 export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
@@ -390,13 +396,14 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Accessibility,
   Add,
   AddBox,
+  AddComments,
   AddPhoto,
+  AddText,
   Administrator,
   AdvancePaymentsExport,
   Affect,
   Agency,
   Agent,
-  Sparkle,
   Alarm,
   AlarmHandled,
   AlarmPostponed,
@@ -436,6 +443,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Call,
   Camera,
   Cameraswitch,
+  Campaign,
   Cancel,
   Category,
   ChangeHistory,
@@ -726,6 +734,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Sms,
   SortByAlpha,
   South,
+  Sparkle,
   Stacks,
   Star,
   StartContract,
@@ -752,6 +761,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   UnvaluedBillableRates,
   UnvaluesCharges,
   Update,
+  UploadFile,
   ValidatedInvoices,
   VerySatisfied,
   Visibility,

@@ -8,7 +8,9 @@ export { AccentDot } from "./icons/AccentDot";
 export { Accessibility } from "./icons/Accessibility";
 export { Add } from "./icons/Add";
 export { AddBox } from "./icons/AddBox";
+export { AddComments } from "./icons/AddComments";
 export { AddPhoto } from "./icons/AddPhoto";
+export { AddText } from "./icons/AddText";
 export { Administrator } from "./icons/Administrator";
 export { AdvancePaymentsExport } from "./icons/AdvancePaymentsExport";
 export { Affect } from "./icons/Affect";
@@ -53,6 +55,7 @@ export { CalendarToday } from "./icons/CalendarToday";
 export { Call } from "./icons/Call";
 export { Camera } from "./icons/Camera";
 export { Cameraswitch } from "./icons/Cameraswitch";
+export { Campaign } from "./icons/Campaign";
 export { Cancel } from "./icons/Cancel";
 export { Category } from "./icons/Category";
 export { ChangeHistory } from "./icons/ChangeHistory";
@@ -184,10 +187,10 @@ export { InsertPageBreak } from "./icons/InsertPageBreak";
 export { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 export { InvoiceCancellation } from "./icons/InvoiceCancellation";
 export { InvoiceCredit } from "./icons/InvoiceCredit";
-export { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 export { Invoices } from "./icons/Invoices";
 export { InvoicesExport } from "./icons/InvoicesExport";
 export { InvoicesProofs } from "./icons/InvoicesProofs";
+export { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 export { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
 export { InvoiceValidation } from "./icons/InvoiceValidation";
 export { IosShare } from "./icons/IosShare";
@@ -303,8 +306,8 @@ export { RemoveSelection } from "./icons/RemoveSelection";
 export { Report } from "./icons/Report";
 export { ResourceAlarm } from "./icons/ResourceAlarm";
 export { ResourcePin } from "./icons/ResourcePin";
-export { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 export { ResourcesBonuses } from "./icons/ResourcesBonuses";
+export { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 export { Reviews } from "./icons/Reviews";
 export { SalesActions } from "./icons/SalesActions";
 export { Save } from "./icons/Save";
@@ -370,6 +373,7 @@ export { UnpublishSchedule } from "./icons/UnpublishSchedule";
 export { UnvaluedBillableRates } from "./icons/UnvaluedBillableRates";
 export { UnvaluesCharges } from "./icons/UnvaluesCharges";
 export { Update } from "./icons/Update";
+export { UploadFile } from "./icons/UploadFile";
 export { ValidatedInvoices } from "./icons/ValidatedInvoices";
 export { VerySatisfied } from "./icons/VerySatisfied";
 export { Visibility } from "./icons/Visibility";
@@ -386,15 +390,12 @@ export { Work } from "./icons/Work";
 export { Workspaces } from "./icons/Workspaces";
 export { Zip } from "./icons/Zip";
 export { ZoomOutMap } from "./icons/ZoomOutMap";
-// Registry
-export { iconRegistry } from "./registry";
+
 // Types
-export type {
-  IconColor,
-  IconName,
-  IconProps,
-  IconSpacing,
-  IconVariant,
-} from "./types";
+export type { IconProps, IconSpacing, IconVariant, IconColor, IconName } from "./types";
+
 // Utils
 export { getIconClass } from "./utils";
+
+// Registry
+export { iconRegistry } from "./registry";

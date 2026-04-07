@@ -11,8 +11,8 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" d="M0 12.566V1.912h15.22v2.283h-1.522L9.893 8H3.044v1.522h5.327l-3.044 3.044zm3.044-6.088H7.61V4.956H3.044zm5.327 7.61v-1.332l5.06-5.06 1.332 1.331-5.06 5.061zm6.849-5.517-1.332-1.332.685-.685a.3.3 0 0 1 .21-.095.3.3 0 0 1 .209.095l.913.913a.3.3 0 0 1 .095.21.3.3 0 0 1-.095.209z"/></> }
     },
     duotone: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M6 15h7l2-2H6zm0-4h6V9H6zM4 7v10h7l-2 2H2V5h20v3h-2V7z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M13 21v-1.75l6.65-6.65 1.75 1.75L14.75 21zm9.9-8.7a.38.38 0 0 1 .125.275q0 .15-.125.275l-.9.9L20.25 12l.9-.9a.38.38 0 0 1 .275-.125q.15 0 .275.125z"/></> },
-      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M3.044 9.61h5.327l1.522-1.522H3.044zm0-3.044H7.61V5.044H3.044zM1.522 3.522v7.61h5.327l-1.522 1.522H0V2h15.22v2.283h-1.522v-.761z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M8.371 14.176v-1.332l5.06-5.06 1.332 1.331-5.06 5.061zm7.534-6.621a.3.3 0 0 1 .095.21.3.3 0 0 1-.095.209l-.685.685-1.332-1.332.685-.685a.3.3 0 0 1 .21-.095q.113 0 .209.095z"/></> }
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M6 15h7l2-2H6zm0-4h6V9H6zM4 7v10h7l-2 2H2V5h20v3h-2V7z" clipRule="evenodd"/><path fill="#0076D8" d="M13 21v-1.75l6.65-6.65 1.75 1.75L14.75 21zm9.9-8.7a.38.38 0 0 1 .125.275q0 .15-.125.275l-.9.9L20.25 12l.9-.9a.38.38 0 0 1 .275-.125q.15 0 .275.125z"/></> },
+      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M3.044 9.61h5.327l1.522-1.522H3.044zm0-3.044H7.61V5.044H3.044zM1.522 3.522v7.61h5.327l-1.522 1.522H0V2h15.22v2.283h-1.522v-.761z" clipRule="evenodd"/><path fill="#0076D8" d="M8.371 14.176v-1.332l5.06-5.06 1.332 1.331-5.06 5.061zm7.534-6.621a.3.3 0 0 1 .095.21.3.3 0 0 1-.095.209l-.685.685-1.332-1.332.685-.685a.3.3 0 0 1 .21-.095q.113 0 .209.095z"/></> }
     }
 };
 

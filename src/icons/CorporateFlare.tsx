@@ -11,8 +11,8 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" d="M9.6 8.707V7.226h3.2v1.481z"/><path fill="currentColor" fillRule="evenodd" d="M0 14.633V1.3h8v2.963h8v10.37zm1.6-1.481h4.8V11.67H1.6zm0-2.963h4.8V8.707H1.6zm0-2.963h4.8V5.744H1.6zm0-2.963h4.8V2.781H1.6zM8 13.152h6.4V5.744H8z" clipRule="evenodd"/><path fill="currentColor" d="M9.6 11.67v-1.48h3.2v1.481z"/></> }
     },
     duotone: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="var(--icon-information)" d="M14 12.889V11.11h4v1.778z"/><path fill="currentColor" fillRule="evenodd" d="M2 20V4h10v3.556h10V20zm2-1.778h6v-1.778H4zm0-3.555h6v-1.778H4zm0-3.556h6V9.333H4zm0-3.555h6V5.778H4zm8 10.666h8V9.333h-8z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M14 16.444v-1.777h4v1.777z"/></> },
-      "none": { viewBox: "0 0 16 16", paths: <><path fill="var(--icon-information)" d="M9.6 8.707V7.226h3.2v1.481z"/><path fill="currentColor" fillRule="evenodd" d="M0 14.633V1.3h8v2.963h8v10.37zm1.6-1.481h4.8V11.67H1.6zm0-2.963h4.8V8.707H1.6zm0-2.963h4.8V5.744H1.6zm0-2.963h4.8V2.781H1.6zM8 13.152h6.4V5.744H8z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M9.6 11.67v-1.48h3.2v1.481z"/></> }
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="#0076D8" d="M14 12.889V11.11h4v1.778z"/><path fill="currentColor" fillRule="evenodd" d="M2 20V4h10v3.556h10V20zm2-1.778h6v-1.778H4zm0-3.555h6v-1.778H4zm0-3.556h6V9.333H4zm0-3.555h6V5.778H4zm8 10.666h8V9.333h-8z" clipRule="evenodd"/><path fill="#0076D8" d="M14 16.444v-1.777h4v1.777z"/></> },
+      "none": { viewBox: "0 0 16 16", paths: <><path fill="#0076D8" d="M9.6 8.707V7.226h3.2v1.481z"/><path fill="currentColor" fillRule="evenodd" d="M0 14.633V1.3h8v2.963h8v10.37zm1.6-1.481h4.8V11.67H1.6zm0-2.963h4.8V8.707H1.6zm0-2.963h4.8V5.744H1.6zm0-2.963h4.8V2.781H1.6zM8 13.152h6.4V5.744H8z" clipRule="evenodd"/><path fill="#0076D8" d="M9.6 11.67v-1.48h3.2v1.481z"/></> }
     }
 };
 

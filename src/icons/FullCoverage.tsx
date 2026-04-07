@@ -11,8 +11,8 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" d="M1.524 14.864q-.63 0-1.076-.447A1.47 1.47 0 0 1 0 13.34V4.198h1.524v9.142h11.428v1.524zm3.047-3.047q-.628 0-1.076-.448a1.47 1.47 0 0 1-.447-1.076V1.15H16v9.143q0 .628-.448 1.076a1.47 1.47 0 0 1-1.076.448zm1.524-3.81h3.048v-3.81H6.095zm3.81 0h3.047V6.483H9.905zm0-2.286h3.047V4.198H9.905z"/></> }
     },
     duotone: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M2.588 20.413Q3.175 21 4 21h15v-2H4V7H2v12q0 .824.587 1.413m4-4Q7.175 17 8 17h13q.824 0 1.413-.587Q23 15.825 23 15V3H6v12q0 .824.588 1.413M21 15H8V5h13z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M15 9h4V7h-4zm-5 3h4V7h-4zm5 0h4v-2h-4z"/></> },
-      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M.448 14.417q.447.447 1.076.447h11.428V13.34H1.524V4.198H0v9.142q0 .63.448 1.077m3.047-3.048q.448.447 1.076.448h9.905q.63 0 1.076-.448.448-.448.448-1.076V1.15H3.048v9.143q0 .628.447 1.076m10.981-1.076H4.571v-7.62h9.905z" clipRule="evenodd"/><path fill="var(--icon-information)" d="M6.095 8.007h3.048v-3.81H6.095zm3.81-2.286h3.047V4.198H9.905zm0 2.286h3.047V6.483H9.905z"/></> }
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M2.588 20.413Q3.175 21 4 21h15v-2H4V7H2v12q0 .824.587 1.413m4-4Q7.175 17 8 17h13q.824 0 1.413-.587Q23 15.825 23 15V3H6v12q0 .824.588 1.413M21 15H8V5h13z" clipRule="evenodd"/><path fill="#0076D8" d="M15 9h4V7h-4zm-5 3h4V7h-4zm5 0h4v-2h-4z"/></> },
+      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M.448 14.417q.447.447 1.076.447h11.428V13.34H1.524V4.198H0v9.142q0 .63.448 1.077m3.047-3.048q.448.447 1.076.448h9.905q.63 0 1.076-.448.448-.448.448-1.076V1.15H3.048v9.143q0 .628.447 1.076m10.981-1.076H4.571v-7.62h9.905z" clipRule="evenodd"/><path fill="#0076D8" d="M6.095 8.007h3.048v-3.81H6.095zm3.81-2.286h3.047V4.198H9.905zm0 2.286h3.047V6.483H9.905z"/></> }
     }
 };
 

@@ -11,8 +11,8 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
       "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" d="M8.889 5.333V0H16v5.333zM0 8.89V0h7.111v8.889zM8.889 16V7.111H16V16zM0 16v-5.333h7.111V16z"/></> }
     },
     duotone: {
-      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M13 3v6h8V3zM3 3v10h8V3zm0 12v6h8v-6zm6-4H5V5h4zm10-4h-4V5h4zM9 19H5v-2h4z" clipRule="evenodd"/><path fill="var(--icon-information)" fillRule="evenodd" d="M13 21V11h8v10zm6-2h-4v-6h4z" clipRule="evenodd"/></> },
-      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M8.889 0v5.333H16V0zM0 0v8.889h7.111V0zm0 10.667V16h7.111v-5.333zM5.333 7.11H1.778V1.778h3.555zm8.89-3.555h-3.556V1.778h3.555zm-8.89 10.666H1.778v-1.778h3.555z" clipRule="evenodd"/><path fill="var(--icon-information)" fillRule="evenodd" d="M8.889 16V7.111H16V16zm5.333-1.778h-3.555V8.89h3.555z" clipRule="evenodd"/></> }
+      "default": { viewBox: "0 0 24 24", paths: <><path fill="currentColor" fillRule="evenodd" d="M13 3v6h8V3zM3 3v10h8V3zm0 12v6h8v-6zm6-4H5V5h4zm10-4h-4V5h4zM9 19H5v-2h4z" clipRule="evenodd"/><path fill="#0076D8" fillRule="evenodd" d="M13 21V11h8v10zm6-2h-4v-6h4z" clipRule="evenodd"/></> },
+      "none": { viewBox: "0 0 16 16", paths: <><path fill="currentColor" fillRule="evenodd" d="M8.889 0v5.333H16V0zM0 0v8.889h7.111V0zm0 10.667V16h7.111v-5.333zM5.333 7.11H1.778V1.778h3.555zm8.89-3.555h-3.556V1.778h3.555zm-8.89 10.666H1.778v-1.778h3.555z" clipRule="evenodd"/><path fill="#0076D8" fillRule="evenodd" d="M8.889 16V7.111H16V16zm5.333-1.778h-3.555V8.89h3.555z" clipRule="evenodd"/></> }
     }
 };
 
