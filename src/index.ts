@@ -187,10 +187,10 @@ export { InsertPageBreak } from "./icons/InsertPageBreak";
 export { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 export { InvoiceCancellation } from "./icons/InvoiceCancellation";
 export { InvoiceCredit } from "./icons/InvoiceCredit";
+export { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 export { Invoices } from "./icons/Invoices";
 export { InvoicesExport } from "./icons/InvoicesExport";
 export { InvoicesProofs } from "./icons/InvoicesProofs";
-export { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 export { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
 export { InvoiceValidation } from "./icons/InvoiceValidation";
 export { IosShare } from "./icons/IosShare";
@@ -306,8 +306,8 @@ export { RemoveSelection } from "./icons/RemoveSelection";
 export { Report } from "./icons/Report";
 export { ResourceAlarm } from "./icons/ResourceAlarm";
 export { ResourcePin } from "./icons/ResourcePin";
-export { ResourcesBonuses } from "./icons/ResourcesBonuses";
 export { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
+export { ResourcesBonuses } from "./icons/ResourcesBonuses";
 export { Reviews } from "./icons/Reviews";
 export { SalesActions } from "./icons/SalesActions";
 export { Save } from "./icons/Save";
@@ -390,12 +390,15 @@ export { Work } from "./icons/Work";
 export { Workspaces } from "./icons/Workspaces";
 export { Zip } from "./icons/Zip";
 export { ZoomOutMap } from "./icons/ZoomOutMap";
-
-// Types
-export type { IconProps, IconSpacing, IconVariant, IconColor, IconName } from "./types";
-
-// Utils
-export { getIconClass } from "./utils";
-
 // Registry
 export { iconRegistry } from "./registry";
+// Types
+export type {
+  IconColor,
+  IconName,
+  IconProps,
+  IconSpacing,
+  IconVariant,
+} from "./types";
+// Utils
+export { getIconClass } from "./utils";
