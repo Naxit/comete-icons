@@ -134,6 +134,7 @@ export { EditNote } from "./icons/EditNote";
 export { EditorSearch } from "./icons/EditorSearch";
 export { Email } from "./icons/Email";
 export { Emergency } from "./icons/Emergency";
+export { EmergencyHome } from "./icons/EmergencyHome";
 export { Error } from "./icons/Error";
 export { EventAvailable } from "./icons/EventAvailable";
 export { EventBusy } from "./icons/EventBusy";

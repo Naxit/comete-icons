@@ -131,7 +131,9 @@ function buildIconMap(): IconMap {
         continue;
       }
 
-      const [, iconName, fileSize] = match;
+      const [, rawName, fileSize] = match;
+      // Convert spaces/hyphens to PascalCase (e.g. "Emergency home" → "EmergencyHome")
+      const iconName = rawName.replace(/[\s-]+(.)/g, (_, c: string) => c.toUpperCase());
       const spacing = FILE_TO_SPACING[fileSize] as (typeof SPACINGS)[number];
       const svg = readFileSync(join(dir, file), "utf-8");
       const inner = extractSvgInner(svg);

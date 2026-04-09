@@ -130,6 +130,7 @@ import { EditNote } from "./icons/EditNote";
 import { EditorSearch } from "./icons/EditorSearch";
 import { Email } from "./icons/Email";
 import { Emergency } from "./icons/Emergency";
+import { EmergencyHome } from "./icons/EmergencyHome";
 import { Error as ErrorIcon } from "./icons/Error";
 import { EventAvailable } from "./icons/EventAvailable";
 import { EventBusy } from "./icons/EventBusy";
@@ -520,6 +521,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   EditorSearch,
   Email,
   Emergency,
+  EmergencyHome,
   Error: ErrorIcon,
   EventAvailable,
   EventBusy,

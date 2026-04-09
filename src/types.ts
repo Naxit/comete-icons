@@ -153,6 +153,7 @@ export type IconName =
   | "EditorSearch"
   | "Email"
   | "Emergency"
+  | "EmergencyHome"
   | "Error"
   | "EventAvailable"
   | "EventBusy"
