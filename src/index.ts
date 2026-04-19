@@ -209,6 +209,7 @@ export { KeyboardDoubleArrowUp } from "./icons/KeyboardDoubleArrowUp";
 export { LabelImportant } from "./icons/LabelImportant";
 export { LastInvoice } from "./icons/LastInvoice";
 export { LastPage } from "./icons/LastPage";
+export { License } from "./icons/License";
 export { Lightbulb } from "./icons/Lightbulb";
 export { Link } from "./icons/Link";
 export { LinkOff } from "./icons/LinkOff";

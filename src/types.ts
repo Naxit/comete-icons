@@ -228,6 +228,7 @@ export type IconName =
   | "LabelImportant"
   | "LastInvoice"
   | "LastPage"
+  | "License"
   | "Lightbulb"
   | "Link"
   | "LinkOff"

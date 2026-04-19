@@ -205,6 +205,7 @@ import { KeyboardDoubleArrowUp } from "./icons/KeyboardDoubleArrowUp";
 import { LabelImportant } from "./icons/LabelImportant";
 import { LastInvoice } from "./icons/LastInvoice";
 import { LastPage } from "./icons/LastPage";
+import { License } from "./icons/License";
 import { Lightbulb } from "./icons/Lightbulb";
 import { Link } from "./icons/Link";
 import { LinkOff } from "./icons/LinkOff";
@@ -597,6 +598,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   LabelImportant,
   LastInvoice,
   LastPage,
+  License,
   Lightbulb,
   Link,
   LinkOff,
