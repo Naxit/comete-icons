@@ -34,6 +34,7 @@ export { AttachFileAdd } from "./icons/AttachFileAdd";
 export { AttachFileOff } from "./icons/AttachFileOff";
 export { Autorenew } from "./icons/Autorenew";
 export { AutoStories } from "./icons/AutoStories";
+export { AwardStar } from "./icons/AwardStar";
 export { Badge } from "./icons/Badge";
 export { BadMood } from "./icons/BadMood";
 export { BarChart } from "./icons/BarChart";

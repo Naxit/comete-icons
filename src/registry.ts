@@ -30,6 +30,7 @@ import { AttachFileAdd } from "./icons/AttachFileAdd";
 import { AttachFileOff } from "./icons/AttachFileOff";
 import { Autorenew } from "./icons/Autorenew";
 import { AutoStories } from "./icons/AutoStories";
+import { AwardStar } from "./icons/AwardStar";
 import { Badge } from "./icons/Badge";
 import { BadMood } from "./icons/BadMood";
 import { BarChart } from "./icons/BarChart";
@@ -421,6 +422,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   AttachFileOff,
   Autorenew,
   AutoStories,
+  AwardStar,
   Badge,
   BadMood,
   BarChart,
