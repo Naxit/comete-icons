@@ -29,12 +29,12 @@ export { ArrowDropUp } from "./icons/ArrowDropUp";
 export { ArrowForward } from "./icons/ArrowForward";
 export { ArrowNegative } from "./icons/ArrowNegative";
 export { ArrowPositive } from "./icons/ArrowPositive";
+export { Assignment } from "./icons/Assignment";
 export { AttachFile } from "./icons/AttachFile";
 export { AttachFileAdd } from "./icons/AttachFileAdd";
 export { AttachFileOff } from "./icons/AttachFileOff";
 export { Autorenew } from "./icons/Autorenew";
 export { AutoStories } from "./icons/AutoStories";
-export { AwardStar } from "./icons/AwardStar";
 export { Badge } from "./icons/Badge";
 export { BadMood } from "./icons/BadMood";
 export { BarChart } from "./icons/BarChart";
@@ -189,10 +189,10 @@ export { InsertPageBreak } from "./icons/InsertPageBreak";
 export { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 export { InvoiceCancellation } from "./icons/InvoiceCancellation";
 export { InvoiceCredit } from "./icons/InvoiceCredit";
-export { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 export { Invoices } from "./icons/Invoices";
 export { InvoicesExport } from "./icons/InvoicesExport";
 export { InvoicesProofs } from "./icons/InvoicesProofs";
+export { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 export { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
 export { InvoiceValidation } from "./icons/InvoiceValidation";
 export { IosShare } from "./icons/IosShare";
@@ -209,7 +209,8 @@ export { KeyboardDoubleArrowUp } from "./icons/KeyboardDoubleArrowUp";
 export { LabelImportant } from "./icons/LabelImportant";
 export { LastInvoice } from "./icons/LastInvoice";
 export { LastPage } from "./icons/LastPage";
-export { License } from "./icons/License";
+export { LeftPanelClose } from "./icons/LeftPanelClose";
+export { LeftPanelOpen } from "./icons/LeftPanelOpen";
 export { Lightbulb } from "./icons/Lightbulb";
 export { Link } from "./icons/Link";
 export { LinkOff } from "./icons/LinkOff";
@@ -309,8 +310,8 @@ export { RemoveSelection } from "./icons/RemoveSelection";
 export { Report } from "./icons/Report";
 export { ResourceAlarm } from "./icons/ResourceAlarm";
 export { ResourcePin } from "./icons/ResourcePin";
-export { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 export { ResourcesBonuses } from "./icons/ResourcesBonuses";
+export { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 export { Reviews } from "./icons/Reviews";
 export { SalesActions } from "./icons/SalesActions";
 export { Save } from "./icons/Save";
@@ -359,6 +360,7 @@ export { Straighten } from "./icons/Straighten";
 export { SubContractor } from "./icons/SubContractor";
 export { SubcontractorOrder } from "./icons/SubcontractorOrder";
 export { SupportAgent } from "./icons/SupportAgent";
+export { SwapVert } from "./icons/SwapVert";
 export { SwitchAccount } from "./icons/SwitchAccount";
 export { SyncAlt } from "./icons/SyncAlt";
 export { Table } from "./icons/Table";
@@ -393,15 +395,12 @@ export { Work } from "./icons/Work";
 export { Workspaces } from "./icons/Workspaces";
 export { Zip } from "./icons/Zip";
 export { ZoomOutMap } from "./icons/ZoomOutMap";
-// Registry
-export { iconRegistry } from "./registry";
+
 // Types
-export type {
-  IconColor,
-  IconName,
-  IconProps,
-  IconSpacing,
-  IconVariant,
-} from "./types";
+export type { IconProps, IconSpacing, IconVariant, IconColor, IconName } from "./types";
+
 // Utils
 export { getIconClass } from "./utils";
+
+// Registry
+export { iconRegistry } from "./registry";
