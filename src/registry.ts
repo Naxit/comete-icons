@@ -1,8 +1,5 @@
 /* Auto-generated — do not edit manually */
 import type { ComponentType } from "react";
-import type { IconName } from "./types";
-import type { IconProps } from "./types";
-
 import { AccentDot } from "./icons/AccentDot";
 import { Accessibility } from "./icons/Accessibility";
 import { Add } from "./icons/Add";
@@ -189,10 +186,10 @@ import { InsertPageBreak } from "./icons/InsertPageBreak";
 import { InvoiceBillableClients } from "./icons/InvoiceBillableClients";
 import { InvoiceCancellation } from "./icons/InvoiceCancellation";
 import { InvoiceCredit } from "./icons/InvoiceCredit";
+import { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 import { Invoices } from "./icons/Invoices";
 import { InvoicesExport } from "./icons/InvoicesExport";
 import { InvoicesProofs } from "./icons/InvoicesProofs";
-import { InvoiceStatusCheck } from "./icons/InvoiceStatusCheck";
 import { InvoiceToApprovedPlatform } from "./icons/InvoiceToApprovedPlatform";
 import { InvoiceValidation } from "./icons/InvoiceValidation";
 import { IosShare } from "./icons/IosShare";
@@ -310,8 +307,8 @@ import { RemoveSelection } from "./icons/RemoveSelection";
 import { Report } from "./icons/Report";
 import { ResourceAlarm } from "./icons/ResourceAlarm";
 import { ResourcePin } from "./icons/ResourcePin";
-import { ResourcesBonuses } from "./icons/ResourcesBonuses";
 import { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
+import { ResourcesBonuses } from "./icons/ResourcesBonuses";
 import { Reviews } from "./icons/Reviews";
 import { SalesActions } from "./icons/SalesActions";
 import { Save } from "./icons/Save";
@@ -395,6 +392,7 @@ import { Work } from "./icons/Work";
 import { Workspaces } from "./icons/Workspaces";
 import { Zip } from "./icons/Zip";
 import { ZoomOutMap } from "./icons/ZoomOutMap";
+import type { IconName, IconProps } from "./types";
 
 /** Maps every icon name to its React component. */
 export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
