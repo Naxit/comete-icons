@@ -54,6 +54,7 @@ export type IconName =
   | "AttachFileOff"
   | "Autorenew"
   | "AutoStories"
+  | "AwardStar"
   | "Badge"
   | "BadMood"
   | "BarChart"
