@@ -7,3 +7,5 @@ tsup.config.bundled_*.mjs
 package-lock.json
 .DS_Store
 .npmrc
+.claude/launch.json
+.claude/settings.local.json
