@@ -84,11 +84,15 @@ Quand une icône provient de Material Symbols et n'est pas dans le fichier Figma
 
 ### Source des SVGs
 
-- **API Google Fonts** (viewBox `0 -960 960 960`, à normaliser) :
+- **Repo GitHub** (source de vérité, SVGs à jour) :
+  - Outlined : `https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/{nom_underscore}/materialsymbolsoutlined/{nom_underscore}_24px.svg`
+  - Filled (FILL=1) : `https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/{nom_underscore}/materialsymbolsoutlined/{nom_underscore}_fill1_24px.svg`
+- **API Google Fonts** (fallback, ⚠️ certains SVGs sont obsolètes — ex: `task_alt` retournait une pilule au lieu d'un cercle) :
   - Outlined : `https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/{nom_underscore}/default/24px.svg`
   - Filled (FILL=1) : `https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/{nom_underscore}/fill1/24px.svg`
 - **Noms** : Google utilise des underscores (`wifi_off`), le DS utilise PascalCase (`WifiOff`)
 - **Ne PAS utiliser les variantes `-rounded` d'Iconify comme filled** — ce sont des variantes de forme, pas de remplissage
+- **Toujours vérifier visuellement** que le SVG téléchargé correspond à ce qu'on voit sur https://fonts.google.com/icons
 
 ### Variantes outlined vs filled
 
