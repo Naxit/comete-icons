@@ -82,6 +82,8 @@ import { CloseSmallCritical } from "./icons/CloseSmallCritical";
 import { CloseSmallFaded } from "./icons/CloseSmallFaded";
 import { CloudDone } from "./icons/CloudDone";
 import { Code } from "./icons/Code";
+import { CollapseAll } from "./icons/CollapseAll";
+import { CollapseContent } from "./icons/CollapseContent";
 import { Comete } from "./icons/Comete";
 import { CometeAcademie } from "./icons/CometeAcademie";
 import { CometeBi } from "./icons/CometeBi";
@@ -110,6 +112,7 @@ import { DateRange } from "./icons/DateRange";
 import { DecimalIncrease } from "./icons/DecimalIncrease";
 import { DeductedUnavailabilitiesHours } from "./icons/DeductedUnavailabilitiesHours";
 import { Delete } from "./icons/Delete";
+import { Description } from "./icons/Description";
 import { Deselect } from "./icons/Deselect";
 import { DesktopWindows } from "./icons/DesktopWindows";
 import { Devices } from "./icons/Devices";
@@ -134,6 +137,7 @@ import { Email } from "./icons/Email";
 import { Emergency } from "./icons/Emergency";
 import { EmergencyHome } from "./icons/EmergencyHome";
 import { Error as ErrorIcon } from "./icons/Error";
+import { Event } from "./icons/Event";
 import { EventAvailable } from "./icons/EventAvailable";
 import { EventBusy } from "./icons/EventBusy";
 import { EventUpcoming } from "./icons/EventUpcoming";
@@ -180,6 +184,7 @@ import { IdCard } from "./icons/IdCard";
 import { Image } from "./icons/Image";
 import { ImageImport } from "./icons/ImageImport";
 import { ImportanceMedium } from "./icons/ImportanceMedium";
+import { Inbox } from "./icons/Inbox";
 import { IndeterminateQuestionBox } from "./icons/IndeterminateQuestionBox";
 import { Info } from "./icons/Info";
 import { InsertPageBreak } from "./icons/InsertPageBreak";
@@ -203,6 +208,7 @@ import { KeyboardDoubleArrowDown } from "./icons/KeyboardDoubleArrowDown";
 import { KeyboardDoubleArrowLeft } from "./icons/KeyboardDoubleArrowLeft";
 import { KeyboardDoubleArrowRight } from "./icons/KeyboardDoubleArrowRight";
 import { KeyboardDoubleArrowUp } from "./icons/KeyboardDoubleArrowUp";
+import { Label } from "./icons/Label";
 import { LabelImportant } from "./icons/LabelImportant";
 import { LastInvoice } from "./icons/LastInvoice";
 import { LastPage } from "./icons/LastPage";
@@ -241,6 +247,7 @@ import { MoreHoriz } from "./icons/MoreHoriz";
 import { MoreVert } from "./icons/MoreVert";
 import { MultipleEdit } from "./icons/MultipleEdit";
 import { MultiplePdf } from "./icons/MultiplePdf";
+import { MyLocation } from "./icons/MyLocation";
 import { NaturalTouch } from "./icons/NaturalTouch";
 import { Neutral } from "./icons/Neutral";
 import { NeutralFadedDot } from "./icons/NeutralFadedDot";
@@ -252,6 +259,7 @@ import { North } from "./icons/North";
 import { Notes } from "./icons/Notes";
 import { Notifications } from "./icons/Notifications";
 import { NotificationsAdd } from "./icons/NotificationsAdd";
+import { NotificationsOff } from "./icons/NotificationsOff";
 import { Numbers } from "./icons/Numbers";
 import { OnePdf } from "./icons/OnePdf";
 import { OpenInNew } from "./icons/OpenInNew";
@@ -309,7 +317,9 @@ import { ResourceAlarm } from "./icons/ResourceAlarm";
 import { ResourcePin } from "./icons/ResourcePin";
 import { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 import { ResourcesBonuses } from "./icons/ResourcesBonuses";
+import { RestoreFromTrash } from "./icons/RestoreFromTrash";
 import { Reviews } from "./icons/Reviews";
+import { RocketLaunch } from "./icons/RocketLaunch";
 import { SalesActions } from "./icons/SalesActions";
 import { Save } from "./icons/Save";
 import { SaveAs } from "./icons/SaveAs";
@@ -325,6 +335,7 @@ import { School } from "./icons/School";
 import { ScreenSearchDesktop } from "./icons/ScreenSearchDesktop";
 import { Search } from "./icons/Search";
 import { SearchInsights } from "./icons/SearchInsights";
+import { SearchOff } from "./icons/SearchOff";
 import { SelectAll } from "./icons/SelectAll";
 import { Send } from "./icons/Send";
 import { SendDocumentToSign } from "./icons/SendDocumentToSign";
@@ -332,6 +343,7 @@ import { Settings } from "./icons/Settings";
 import { SettingsBackupRestore } from "./icons/SettingsBackupRestore";
 import { SettlementsOfDebtorClients } from "./icons/SettlementsOfDebtorClients";
 import { SettleOrder } from "./icons/SettleOrder";
+import { Share } from "./icons/Share";
 import { Shelves } from "./icons/Shelves";
 import { ShoppingCart } from "./icons/ShoppingCart";
 import { ShowArchives } from "./icons/ShowArchives";
@@ -363,12 +375,17 @@ import { SyncAlt } from "./icons/SyncAlt";
 import { Table } from "./icons/Table";
 import { TableConvert } from "./icons/TableConvert";
 import { TableRows } from "./icons/TableRows";
+import { TaskAlt } from "./icons/TaskAlt";
+import { Timelapse } from "./icons/Timelapse";
 import { TransitEnterExit } from "./icons/TransitEnterExit";
+import { Tune } from "./icons/Tune";
 import { Typography } from "./icons/Typography";
 import { Unarchive } from "./icons/Unarchive";
 import { UnarchivedServices } from "./icons/UnarchivedServices";
 import { UnavailabilitiesSettings } from "./icons/UnavailabilitiesSettings";
 import { Undo } from "./icons/Undo";
+import { UnfoldLess } from "./icons/UnfoldLess";
+import { UnfoldMore } from "./icons/UnfoldMore";
 import { Unpublish } from "./icons/Unpublish";
 import { Unpublished } from "./icons/Unpublished";
 import { UnpublishSchedule } from "./icons/UnpublishSchedule";
@@ -387,6 +404,8 @@ import { WbSunny } from "./icons/WbSunny";
 import { Week } from "./icons/Week";
 import { West } from "./icons/West";
 import { WhereToVote } from "./icons/WhereToVote";
+import { Wifi } from "./icons/Wifi";
+import { WifiOff } from "./icons/WifiOff";
 import { Word } from "./icons/Word";
 import { Work } from "./icons/Work";
 import { Workspaces } from "./icons/Workspaces";
@@ -478,6 +497,8 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   CloseSmallFaded,
   CloudDone,
   Code,
+  CollapseAll,
+  CollapseContent,
   Comete,
   CometeAcademie,
   CometeBi,
@@ -506,6 +527,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   DecimalIncrease,
   DeductedUnavailabilitiesHours,
   Delete,
+  Description,
   Deselect,
   DesktopWindows,
   Devices,
@@ -530,6 +552,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Emergency,
   EmergencyHome,
   Error: ErrorIcon,
+  Event,
   EventAvailable,
   EventBusy,
   EventUpcoming,
@@ -576,6 +599,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Image,
   ImageImport,
   ImportanceMedium,
+  Inbox,
   IndeterminateQuestionBox,
   Info,
   InsertPageBreak,
@@ -599,6 +623,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   KeyboardDoubleArrowLeft,
   KeyboardDoubleArrowRight,
   KeyboardDoubleArrowUp,
+  Label,
   LabelImportant,
   LastInvoice,
   LastPage,
@@ -637,6 +662,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   MoreVert,
   MultipleEdit,
   MultiplePdf,
+  MyLocation,
   NaturalTouch,
   Neutral,
   NeutralFadedDot,
@@ -648,6 +674,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Notes,
   Notifications,
   NotificationsAdd,
+  NotificationsOff,
   Numbers,
   OnePdf,
   OpenInNew,
@@ -705,7 +732,9 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ResourcePin,
   ResourcesBonuses,
   ResourceSectorsFilter,
+  RestoreFromTrash,
   Reviews,
+  RocketLaunch,
   SalesActions,
   Save,
   SaveAs,
@@ -721,6 +750,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ScreenSearchDesktop,
   Search,
   SearchInsights,
+  SearchOff,
   SelectAll,
   Send,
   SendDocumentToSign,
@@ -728,6 +758,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   SettingsBackupRestore,
   SettlementsOfDebtorClients,
   SettleOrder,
+  Share,
   Shelves,
   ShoppingCart,
   ShowArchives,
@@ -759,12 +790,17 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Table,
   TableConvert,
   TableRows,
+  TaskAlt,
+  Timelapse,
   TransitEnterExit,
+  Tune,
   Typography,
   Unarchive,
   UnarchivedServices,
   UnavailabilitiesSettings,
   Undo,
+  UnfoldLess,
+  UnfoldMore,
   Unpublish,
   Unpublished,
   UnpublishSchedule,
@@ -783,6 +819,8 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Week,
   West,
   WhereToVote,
+  Wifi,
+  WifiOff,
   Word,
   Work,
   Workspaces,
