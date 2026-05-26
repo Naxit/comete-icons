@@ -92,6 +92,7 @@ export type IconName =
   | "ClientContactInCharge"
   | "ClientMainContact"
   | "ClientsSectorsFilter"
+  | "ClockingBreak"
   | "ClockingIn"
   | "ClockingLate"
   | "ClockingOut"

@@ -31,6 +31,7 @@ const DUOTONE_PRIMARY_COLOR = "#455D84";
  */
 const DUOTONE_COLOR_TO_TOKEN: Record<string, string> = {
   "#007ada": "var(--icon-information)",
+  "#856d0e": "var(--icon-warning)",
 };
 
 /** Base SVGO config shared by outlined/filled variants (all colors → currentColor) */

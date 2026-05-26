@@ -73,6 +73,7 @@ export { ClientAlarm } from "./icons/ClientAlarm";
 export { ClientContactInCharge } from "./icons/ClientContactInCharge";
 export { ClientMainContact } from "./icons/ClientMainContact";
 export { ClientsSectorsFilter } from "./icons/ClientsSectorsFilter";
+export { ClockingBreak } from "./icons/ClockingBreak";
 export { ClockingIn } from "./icons/ClockingIn";
 export { ClockingLate } from "./icons/ClockingLate";
 export { ClockingOut } from "./icons/ClockingOut";

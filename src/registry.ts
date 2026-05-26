@@ -69,6 +69,7 @@ import { ClientAlarm } from "./icons/ClientAlarm";
 import { ClientContactInCharge } from "./icons/ClientContactInCharge";
 import { ClientMainContact } from "./icons/ClientMainContact";
 import { ClientsSectorsFilter } from "./icons/ClientsSectorsFilter";
+import { ClockingBreak } from "./icons/ClockingBreak";
 import { ClockingIn } from "./icons/ClockingIn";
 import { ClockingLate } from "./icons/ClockingLate";
 import { ClockingOut } from "./icons/ClockingOut";
@@ -484,6 +485,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ClientContactInCharge,
   ClientMainContact,
   ClientsSectorsFilter,
+  ClockingBreak,
   ClockingIn,
   ClockingLate,
   ClockingOut,
