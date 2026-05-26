@@ -16,7 +16,7 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
     }
 };
 
-export function CloseCritical({
+export function Close({
   size = 24,
   spacing = "default",
   variant = "outlined",
@@ -43,4 +43,4 @@ export function CloseCritical({
   );
 }
 
-CloseCritical.displayName = "CloseCritical";
+Close.displayName = "Close";

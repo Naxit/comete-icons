@@ -16,7 +16,7 @@ const svgData: Record<string, Record<string, { viewBox: string; paths: React.JSX
     }
 };
 
-export function CloseSmallFaded({
+export function CloseSmall({
   size = 24,
   spacing = "default",
   variant = "outlined",
@@ -43,4 +43,4 @@ export function CloseSmallFaded({
   );
 }
 
-CloseSmallFaded.displayName = "CloseSmallFaded";
+CloseSmall.displayName = "CloseSmall";

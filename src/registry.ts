@@ -78,9 +78,9 @@ import { Clockings } from "./icons/Clockings";
 import { ClockingsValid } from "./icons/ClockingsValid";
 import { ClockingWithGeolocation } from "./icons/ClockingWithGeolocation";
 import { ClockingWithoutGeolocation } from "./icons/ClockingWithoutGeolocation";
-import { CloseCritical } from "./icons/CloseCritical";
+import { Close } from "./icons/Close";
+import { CloseSmall } from "./icons/CloseSmall";
 import { CloseSmallCritical } from "./icons/CloseSmallCritical";
-import { CloseSmallFaded } from "./icons/CloseSmallFaded";
 import { CloudDone } from "./icons/CloudDone";
 import { Code } from "./icons/Code";
 import { CollapseAll } from "./icons/CollapseAll";
@@ -105,6 +105,7 @@ import { ContractEnded } from "./icons/ContractEnded";
 import { CorporateFlare } from "./icons/CorporateFlare";
 import { CriticalDot } from "./icons/CriticalDot";
 import { CurrentMonthRatesMissing } from "./icons/CurrentMonthRatesMissing";
+import { DarkMode } from "./icons/DarkMode";
 import { Dashboard } from "./icons/Dashboard";
 import { DataImport } from "./icons/DataImport";
 import { DataLossPrevention } from "./icons/DataLossPrevention";
@@ -141,10 +142,13 @@ import { Error as ErrorIcon } from "./icons/Error";
 import { Event } from "./icons/Event";
 import { EventAvailable } from "./icons/EventAvailable";
 import { EventBusy } from "./icons/EventBusy";
+import { EventNote } from "./icons/EventNote";
 import { EventUpcoming } from "./icons/EventUpcoming";
 import { Excel } from "./icons/Excel";
 import { ExpandAll } from "./icons/ExpandAll";
 import { ExpandContent } from "./icons/ExpandContent";
+import { ExpandLess } from "./icons/ExpandLess";
+import { ExpandMore } from "./icons/ExpandMore";
 import { Extension } from "./icons/Extension";
 import { FaceId } from "./icons/FaceId";
 import { Fax } from "./icons/Fax";
@@ -216,6 +220,7 @@ import { LastPage } from "./icons/LastPage";
 import { LeftPanelClose } from "./icons/LeftPanelClose";
 import { LeftPanelOpen } from "./icons/LeftPanelOpen";
 import { Lightbulb } from "./icons/Lightbulb";
+import { LightMode } from "./icons/LightMode";
 import { Link } from "./icons/Link";
 import { LinkOff } from "./icons/LinkOff";
 import { LinkToSite } from "./icons/LinkToSite";
@@ -257,6 +262,7 @@ import { Newspaper } from "./icons/Newspaper";
 import { Nfc } from "./icons/Nfc";
 import { NightLight } from "./icons/NightLight";
 import { North } from "./icons/North";
+import { NoteAdd } from "./icons/NoteAdd";
 import { Notes } from "./icons/Notes";
 import { Notifications } from "./icons/Notifications";
 import { NotificationsAdd } from "./icons/NotificationsAdd";
@@ -494,9 +500,9 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ClockingsValid,
   ClockingWithGeolocation,
   ClockingWithoutGeolocation,
-  CloseCritical,
+  Close,
+  CloseSmall,
   CloseSmallCritical,
-  CloseSmallFaded,
   CloudDone,
   Code,
   CollapseAll,
@@ -521,6 +527,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   CorporateFlare,
   CriticalDot,
   CurrentMonthRatesMissing,
+  DarkMode,
   Dashboard,
   DataImport,
   DataLossPrevention,
@@ -557,10 +564,13 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Event,
   EventAvailable,
   EventBusy,
+  EventNote,
   EventUpcoming,
   Excel,
   ExpandAll,
   ExpandContent,
+  ExpandLess,
+  ExpandMore,
   Extension,
   FaceId,
   Fax,
@@ -632,6 +642,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   LeftPanelClose,
   LeftPanelOpen,
   Lightbulb,
+  LightMode,
   Link,
   LinkOff,
   LinkToSite,
@@ -673,6 +684,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Nfc,
   NightLight,
   North,
+  NoteAdd,
   Notes,
   Notifications,
   NotificationsAdd,
