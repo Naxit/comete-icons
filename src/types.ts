@@ -375,6 +375,7 @@ export type IconName =
   | "SettleOrder"
   | "Share"
   | "Shelves"
+  | "Shield"
   | "ShoppingCart"
   | "ShowArchives"
   | "SimulationAdd"

@@ -352,6 +352,7 @@ import { SettlementsOfDebtorClients } from "./icons/SettlementsOfDebtorClients";
 import { SettleOrder } from "./icons/SettleOrder";
 import { Share } from "./icons/Share";
 import { Shelves } from "./icons/Shelves";
+import { Shield } from "./icons/Shield";
 import { ShoppingCart } from "./icons/ShoppingCart";
 import { ShowArchives } from "./icons/ShowArchives";
 import { SimulationAdd } from "./icons/SimulationAdd";
@@ -774,6 +775,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   SettleOrder,
   Share,
   Shelves,
+  Shield,
   ShoppingCart,
   ShowArchives,
   SimulationAdd,

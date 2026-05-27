@@ -356,6 +356,7 @@ export { SettlementsOfDebtorClients } from "./icons/SettlementsOfDebtorClients";
 export { SettleOrder } from "./icons/SettleOrder";
 export { Share } from "./icons/Share";
 export { Shelves } from "./icons/Shelves";
+export { Shield } from "./icons/Shield";
 export { ShoppingCart } from "./icons/ShoppingCart";
 export { ShowArchives } from "./icons/ShowArchives";
 export { SimulationAdd } from "./icons/SimulationAdd";
