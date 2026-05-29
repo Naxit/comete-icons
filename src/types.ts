@@ -249,6 +249,7 @@ export type IconName =
   | "LinkToSite"
   | "List"
   | "LiveHelp"
+  | "LocationChip"
   | "LocationOn"
   | "Lock"
   | "LockCritical"

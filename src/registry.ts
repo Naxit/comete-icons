@@ -226,6 +226,7 @@ import { LinkOff } from "./icons/LinkOff";
 import { LinkToSite } from "./icons/LinkToSite";
 import { List } from "./icons/List";
 import { LiveHelp } from "./icons/LiveHelp";
+import { LocationChip } from "./icons/LocationChip";
 import { LocationOn } from "./icons/LocationOn";
 import { Lock } from "./icons/Lock";
 import { LockCritical } from "./icons/LockCritical";
@@ -650,6 +651,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   LinkToSite,
   List,
   LiveHelp,
+  LocationChip,
   LocationOn,
   Lock,
   LockCritical,

@@ -230,6 +230,7 @@ export { LinkOff } from "./icons/LinkOff";
 export { LinkToSite } from "./icons/LinkToSite";
 export { List } from "./icons/List";
 export { LiveHelp } from "./icons/LiveHelp";
+export { LocationChip } from "./icons/LocationChip";
 export { LocationOn } from "./icons/LocationOn";
 export { Lock } from "./icons/Lock";
 export { LockCritical } from "./icons/LockCritical";
