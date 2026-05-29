@@ -315,6 +315,7 @@ export type IconName =
   | "PersonAdd"
   | "PersonSearch"
   | "PhotoLibrary"
+  | "PlayForWork"
   | "Png"
   | "PositiveDot"
   | "PreEmploymentDeclaration"

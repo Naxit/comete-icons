@@ -22,7 +22,11 @@ const VARIANTS = ["outlined", "filled", "duotone"] as const;
  * The primary icon color in Figma (icon/default token in light theme).
  * In duotone SVGs this color becomes currentColor; all other colors are kept.
  */
-const DUOTONE_PRIMARY_COLOR = "#455D84";
+/**
+ * Primary colors used in Figma duotone SVGs.
+ * Both are replaced with currentColor by the duotone SVGO plugin.
+ */
+const DUOTONE_PRIMARY_COLORS = ["#455D84", "#49585B"];
 
 /**
  * Mapping of Figma hardcoded colors to design token CSS custom properties.
@@ -31,6 +35,7 @@ const DUOTONE_PRIMARY_COLOR = "#455D84";
  */
 const DUOTONE_COLOR_TO_TOKEN: Record<string, string> = {
   "#007ada": "var(--icon-information)",
+  "#0076d8": "var(--icon-information)",
   "#856d0e": "var(--icon-warning)",
 };
 
@@ -93,12 +98,14 @@ const duotoneConfig: Config = {
       fn: () => ({
         element: {
           enter: (node) => {
-            const primaryLower = DUOTONE_PRIMARY_COLOR.toLowerCase();
+            const primarySet = new Set(
+              DUOTONE_PRIMARY_COLORS.map((c) => c.toLowerCase()),
+            );
             for (const attr of ["fill", "stroke"] as const) {
               const value = node.attributes[attr];
               if (!value) continue;
               const lower = value.toLowerCase();
-              if (lower === primaryLower) {
+              if (primarySet.has(lower)) {
                 node.attributes[attr] = "currentColor";
               } else if (DUOTONE_COLOR_TO_TOKEN[lower]) {
                 node.attributes[attr] = DUOTONE_COLOR_TO_TOKEN[lower];

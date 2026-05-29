@@ -292,6 +292,7 @@ import { Person } from "./icons/Person";
 import { PersonAdd } from "./icons/PersonAdd";
 import { PersonSearch } from "./icons/PersonSearch";
 import { PhotoLibrary } from "./icons/PhotoLibrary";
+import { PlayForWork } from "./icons/PlayForWork";
 import { Png } from "./icons/Png";
 import { PositiveDot } from "./icons/PositiveDot";
 import { PreEmploymentDeclaration } from "./icons/PreEmploymentDeclaration";
@@ -717,6 +718,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   PersonAdd,
   PersonSearch,
   PhotoLibrary,
+  PlayForWork,
   Png,
   PositiveDot,
   PreEmploymentDeclaration,

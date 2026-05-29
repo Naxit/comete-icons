@@ -296,6 +296,7 @@ export { Person } from "./icons/Person";
 export { PersonAdd } from "./icons/PersonAdd";
 export { PersonSearch } from "./icons/PersonSearch";
 export { PhotoLibrary } from "./icons/PhotoLibrary";
+export { PlayForWork } from "./icons/PlayForWork";
 export { Png } from "./icons/Png";
 export { PositiveDot } from "./icons/PositiveDot";
 export { PreEmploymentDeclaration } from "./icons/PreEmploymentDeclaration";
