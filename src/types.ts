@@ -330,6 +330,7 @@ export type IconName =
   | "Publish"
   | "Published"
   | "PublishSchedule"
+  | "QuickReference"
   | "Quote"
   | "QuoteToOrder"
   | "RadioButtonChecked"

@@ -311,6 +311,7 @@ export { PrintSiteSchedule } from "./icons/PrintSiteSchedule";
 export { Publish } from "./icons/Publish";
 export { Published } from "./icons/Published";
 export { PublishSchedule } from "./icons/PublishSchedule";
+export { QuickReference } from "./icons/QuickReference";
 export { Quote } from "./icons/Quote";
 export { QuoteToOrder } from "./icons/QuoteToOrder";
 export { RadioButtonChecked } from "./icons/RadioButtonChecked";

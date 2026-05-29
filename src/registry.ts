@@ -307,6 +307,7 @@ import { PrintSiteSchedule } from "./icons/PrintSiteSchedule";
 import { Publish } from "./icons/Publish";
 import { Published } from "./icons/Published";
 import { PublishSchedule } from "./icons/PublishSchedule";
+import { QuickReference } from "./icons/QuickReference";
 import { Quote } from "./icons/Quote";
 import { QuoteToOrder } from "./icons/QuoteToOrder";
 import { RadioButtonChecked } from "./icons/RadioButtonChecked";
@@ -730,6 +731,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Publish,
   Published,
   PublishSchedule,
+  QuickReference,
   Quote,
   QuoteToOrder,
   RadioButtonChecked,
