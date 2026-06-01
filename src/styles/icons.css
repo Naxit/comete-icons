@@ -37,8 +37,20 @@
 .comete-icon--subtlest {
   color: var(--icon-subtlest);
 }
-.comete-icon--accent {
-  color: var(--icon-accent);
+.comete-icon--accentPurple {
+  color: var(--icon-accent-purple);
+}
+.comete-icon--accentTeal {
+  color: var(--icon-accent-teal);
+}
+.comete-icon--accentTurquoise {
+  color: var(--icon-accent-turquoise);
+}
+.comete-icon--accentMagenta {
+  color: var(--icon-accent-magenta);
+}
+.comete-icon--accentBlueGrey {
+  color: var(--icon-accent-blue-grey);
 }
 .comete-icon--day {
   color: var(--icon-day);

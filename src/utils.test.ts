@@ -19,7 +19,11 @@ describe("getIconClass", () => {
       { color: "information", expected: "comete-icon--information" },
       { color: "subtle", expected: "comete-icon--subtle" },
       { color: "subtlest", expected: "comete-icon--subtlest" },
-      { color: "accent", expected: "comete-icon--accent" },
+      { color: "accentPurple", expected: "comete-icon--accentPurple" },
+      { color: "accentTeal", expected: "comete-icon--accentTeal" },
+      { color: "accentTurquoise", expected: "comete-icon--accentTurquoise" },
+      { color: "accentMagenta", expected: "comete-icon--accentMagenta" },
+      { color: "accentBlueGrey", expected: "comete-icon--accentBlueGrey" },
       { color: "day", expected: "comete-icon--day" },
       { color: "night", expected: "comete-icon--night" },
     ];

@@ -17,7 +17,11 @@ export type IconColor =
   | "information"
   | "subtle"
   | "subtlest"
-  | "accent"
+  | "accentPurple"
+  | "accentTeal"
+  | "accentTurquoise"
+  | "accentMagenta"
+  | "accentBlueGrey"
   | "day"
   | "night";
 
