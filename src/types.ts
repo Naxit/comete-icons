@@ -5,25 +5,26 @@ export type IconSpacing = "default" | "none";
 export type IconVariant = "outlined" | "filled" | "duotone";
 
 export type IconColor =
-  | "default"
-  | "disabled"
-  | "inverted"
-  | "on-warning"
-  | "warning"
-  | "critical"
-  | "success"
-  | "brand"
-  | "selected"
-  | "information"
-  | "subtle"
-  | "subtlest"
+  | "accentBlueGrey"
+  | "accentMagenta"
   | "accentPurple"
   | "accentTeal"
   | "accentTurquoise"
-  | "accentMagenta"
-  | "accentBlueGrey"
+  | "bold"
+  | "brand"
+  | "critical"
   | "day"
-  | "night";
+  | "default"
+  | "disabled"
+  | "information"
+  | "inverted"
+  | "night"
+  | "on-warning"
+  | "selected"
+  | "subtle"
+  | "subtlest"
+  | "success"
+  | "warning";
 
 /** Union of every available icon name (auto-generated from SVG sources). */
 export type IconName =
