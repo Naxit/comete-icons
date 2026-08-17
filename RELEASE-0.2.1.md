@@ -1,4 +1,4 @@
-# @naxit/comete-icons v0.2.1 — Première release
+# @aexae/comete-icons v0.2.1 — Première release
 
 La bibliothèque d'icônes de l'écosystème Comète : **380 icônes** exportées automatiquement depuis Figma, optimisées et distribuées sous forme de composants React typés.
 
@@ -9,8 +9,8 @@ La bibliothèque d'icônes de l'écosystème Comète : **380 icônes** exportée
 Chaque icône est un composant autonome avec une API uniforme :
 
 ```tsx
-import { Check, ChevronRight, Dashboard } from "@naxit/comete-icons";
-import "@naxit/comete-icons/styles";
+import { Check, ChevronRight, Dashboard } from "@aexae/comete-icons";
+import "@aexae/comete-icons/styles";
 
 <Check variant="filled" color="success" size={24} />
 <ChevronRight spacing="none" color="default" />
@@ -31,7 +31,7 @@ import "@naxit/comete-icons/styles";
 
 `default`, `disabled`, `inverted`, `on-warning`, `warning`, `critical`, `success`, `brand`, `selected`, `information`, `subtle`, `subtlest`, `accent`, `day`, `night`
 
-Chaque couleur est mappée vers une CSS custom property de `@naxit/comete-design-tokens` (ex: `.comete-icon--success` → `var(--icon-success)`).
+Chaque couleur est mappée vers une CSS custom property de `@aexae/comete-design-tokens` (ex: `.comete-icon--success` → `var(--icon-success)`).
 
 ### 2 281 SVG sources
 
@@ -56,16 +56,16 @@ Pipeline automatisé en 4 étapes (`pnpm pipeline`) :
 ## Utilisation
 
 ```bash
-pnpm add @naxit/comete-icons
+pnpm add @aexae/comete-icons
 ```
 
 ```tsx
-import { Lock } from "@naxit/comete-icons";
-import "@naxit/comete-icons/styles";
+import { Lock } from "@aexae/comete-icons";
+import "@aexae/comete-icons/styles";
 
 <Lock variant="outlined" color="critical" size={20} />
 ```
 
 ## Écosystème
 
-Consommé par `@naxit/comete-design-system` (icônes dans les boutons, résolution automatique de couleur). Les couleurs héritent de `@naxit/comete-design-tokens`.
+Consommé par `@aexae/comete-design-system` (icônes dans les boutons, résolution automatique de couleur). Les couleurs héritent de `@aexae/comete-design-tokens`.

@@ -2,7 +2,7 @@
 
 ## Contexte
 
-`@naxit/comete-icons` est la bibliothèque d'icônes React de l'écosystème Comète.
+`@aexae/comete-icons` est la bibliothèque d'icônes React de l'écosystème Comète.
 Les icônes proviennent du fichier Figma `Comète Icons Set` et sont exportées en SVG optimisé
 puis transformées en composants React typés avec support des design tokens de couleur.
 
@@ -52,7 +52,7 @@ comete-icons/
   - Tracés **secondaires** : couleur d'accent mappée vers un token CSS. Mapping actuel :
     - `#007ADA` → `var(--icon-information)`
     - `#856D0E` → `var(--icon-warning)`
-- La prop `color` mappe vers les CSS custom properties de `@naxit/comete-design-tokens` : `--icon-default`, `--icon-success`, etc.
+- La prop `color` mappe vers les CSS custom properties de `@aexae/comete-design-tokens` : `--icon-default`, `--icon-success`, etc.
 
 ## Export incrémental
 

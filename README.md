@@ -1,18 +1,18 @@
-# @naxit/comete-icons
+# @aexae/comete-icons
 
 **380 icônes** de l'écosystème Comète, exportées depuis Figma et distribuées sous forme de composants React typés.
 
 ## Installation
 
 ```bash
-pnpm add @naxit/comete-icons
+pnpm add @aexae/comete-icons
 ```
 
 ## Utilisation
 
 ```tsx
-import { Check, ChevronRight, Dashboard } from "@naxit/comete-icons";
-import "@naxit/comete-icons/styles";
+import { Check, ChevronRight, Dashboard } from "@aexae/comete-icons";
+import "@aexae/comete-icons/styles";
 
 <Check variant="filled" color="success" size={24} />
 <ChevronRight spacing="none" color="default" />
@@ -60,7 +60,7 @@ L'export est incrémental : seules les icônes modifiées/ajoutées dans Figma s
 
 ## Écosystème
 
-Consommé par `@naxit/comete-design-system`. Les couleurs héritent de `@naxit/comete-design-tokens`.
+Consommé par `@aexae/comete-design-system`. Les couleurs héritent de `@aexae/comete-design-tokens`.
 
 ## Licence
 
