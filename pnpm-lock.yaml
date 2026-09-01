@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@aexae/comete-design-tokens':
-        specifier: ^0.11.0
-        version: 0.11.3
+        specifier: ^0.13.0
+        version: 0.13.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.4.8
@@ -45,8 +45,8 @@ importers:
 
 packages:
 
-  '@aexae/comete-design-tokens@0.11.3':
-    resolution: {integrity: sha512-QnxsCLOOWrRd7B/qtLQEXi9mbof4SDl6noB/ju4aGAwwo8TKAVSzvRCH2V152/eTWzeoLrRo+jX//IGdiJOzzA==, tarball: https://npm.pkg.github.com/download/@aexae/comete-design-tokens/0.11.3/898d7eaea75f017963a7db7ed0f6424f19a71538}
+  '@aexae/comete-design-tokens@0.13.0':
+    resolution: {integrity: sha512-yIYq3esDlmg5Q7Olt1E0+V8GExfDzWFUbNDUYIyls/kCqj043ImksybdR+8nUXURd8glLa04WdfZlZYMU+8/wA==, tarball: https://npm.pkg.github.com/download/@aexae/comete-design-tokens/0.13.0/ca66e411cd3844273bcc1509358606c8ad50e475}
     engines: {node: '>=22'}
 
   '@biomejs/biome@2.4.8':
@@ -1122,7 +1122,7 @@ packages:
 
 snapshots:
 
-  '@aexae/comete-design-tokens@0.11.3': {}
+  '@aexae/comete-design-tokens@0.13.0': {}
 
   '@biomejs/biome@2.4.8':
     optionalDependencies:

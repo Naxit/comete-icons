@@ -12,6 +12,7 @@ export type IconColor =
   | "accentTurquoise"
   | "bold"
   | "brand"
+  | "comete"
   | "critical"
   | "day"
   | "default"

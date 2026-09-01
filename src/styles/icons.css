@@ -22,6 +22,9 @@
 .comete-icon--brand {
   color: var(--icon-brand);
 }
+.comete-icon--comete {
+  color: var(--icon-comete);
+}
 .comete-icon--critical {
   color: var(--icon-critical);
 }
