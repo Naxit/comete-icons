@@ -1,16 +1,12 @@
 lockfileVersion: '9.0'
 
 settings:
-  autoInstallPeers: true
+  autoInstallPeers: false
   excludeLinksFromLockfile: false
 
 importers:
 
   .:
-    dependencies:
-      '@aexae/comete-design-tokens':
-        specifier: ^0.13.0
-        version: 0.13.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.4.8
@@ -41,13 +37,9 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^4.1.0
-        version: 4.1.0(@types/node@22.19.15)(vite@8.0.1(@types/node@22.19.15)(esbuild@0.27.4)(tsx@4.21.0))
+        version: 4.1.0(@types/node@22.19.15)(esbuild@0.27.4)(tsx@4.21.0)
 
 packages:
-
-  '@aexae/comete-design-tokens@0.13.0':
-    resolution: {integrity: sha512-yIYq3esDlmg5Q7Olt1E0+V8GExfDzWFUbNDUYIyls/kCqj043ImksybdR+8nUXURd8glLa04WdfZlZYMU+8/wA==, tarball: https://npm.pkg.github.com/download/@aexae/comete-design-tokens/0.13.0/ca66e411cd3844273bcc1509358606c8ad50e475}
-    engines: {node: '>=22'}
 
   '@biomejs/biome@2.4.8':
     resolution: {integrity: sha512-ponn0oKOky1oRXBV+rlSaUlixUxf1aZvWC19Z41zBfUOUesthrQqL3OtiAlSB1EjFjyWpn98Q64DHelhA6jNlA==}
@@ -1094,7 +1086,6 @@ packages:
       '@vitest/ui': 4.1.0
       happy-dom: '*'
       jsdom: '*'
-      vite: ^6.0.0 || ^7.0.0 || ^8.0.0-0
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -1121,8 +1112,6 @@ packages:
     hasBin: true
 
 snapshots:
-
-  '@aexae/comete-design-tokens@0.13.0': {}
 
   '@biomejs/biome@2.4.8':
     optionalDependencies:
@@ -1925,7 +1914,7 @@ snapshots:
       fsevents: 2.3.3
       tsx: 4.21.0
 
-  vitest@4.1.0(@types/node@22.19.15)(vite@8.0.1(@types/node@22.19.15)(esbuild@0.27.4)(tsx@4.21.0)):
+  vitest@4.1.0(@types/node@22.19.15)(esbuild@0.27.4)(tsx@4.21.0):
     dependencies:
       '@vitest/expect': 4.1.0
       '@vitest/mocker': 4.1.0(vite@8.0.1(@types/node@22.19.15)(esbuild@0.27.4)(tsx@4.21.0))
@@ -1950,7 +1939,18 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.19.15
     transitivePeerDependencies:
+      - '@vitejs/devtools'
+      - esbuild
+      - jiti
+      - less
       - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - yaml
 
   why-is-node-running@2.3.0:
     dependencies:
