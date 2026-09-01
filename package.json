@@ -5,7 +5,9 @@
   "author": "aexae",
   "license": "AGPL-3.0-only",
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -65,20 +67,12 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./icons/*": {
-      "types": "./dist/icons/*.d.ts",
-      "import": "./dist/icons/*.js",
-      "default": "./dist/icons/*.js"
-    },
     "./styles": "./dist/icons.css"
   },
   "typesVersions": {
     "*": {
       "*": [
         "dist/*"
-      ],
-      "icons/*": [
-        "dist/icons/*.d.ts"
       ]
     }
   },

@@ -15,4 +15,10 @@ export default defineConfig({
   loader: {
     ".css": "copy",
   },
+  // REASON: esbuild nomme les assets copiés `[name]-[hash]` par défaut, ce qui
+  // produit un `dist/xxx-HASH.css` et casse le subpath `./styles` déclaré dans
+  // package.json (qui pointe sur un nom stable).
+  esbuildOptions(options) {
+    options.assetNames = "[name]";
+  },
 });
