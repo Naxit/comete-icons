@@ -28,7 +28,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          # PKG_READ_TOKEN (PAT classic, scope read:packages) dès qu'il existe ;
+          # sinon repli sur le secret d'org, qui n'a pas accès au package privé.
+          NPM_AUTH_TOKEN: ${{ secrets.PKG_READ_TOKEN || secrets.NPM_PUBLISH_TOKEN }}
 
       - name: Typecheck
         run: pnpm typecheck
