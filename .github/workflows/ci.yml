@@ -14,9 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # REASON: pas de `version:` ici — pnpm/action-setup@v4 refuse la double
+      # déclaration et lit `packageManager` de package.json (source unique).
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - uses: actions/setup-node@v4
         with:
