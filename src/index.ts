@@ -12,6 +12,7 @@ export { AddComments } from "./icons/AddComments";
 export { AddPhoto } from "./icons/AddPhoto";
 export { AddText } from "./icons/AddText";
 export { Administrator } from "./icons/Administrator";
+export { AdminPanelSettings } from "./icons/AdminPanelSettings";
 export { AdvancePaymentsExport } from "./icons/AdvancePaymentsExport";
 export { Affect } from "./icons/Affect";
 export { Agency } from "./icons/Agency";

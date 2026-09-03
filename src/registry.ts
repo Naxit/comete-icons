@@ -8,6 +8,7 @@ import { AddComments } from "./icons/AddComments";
 import { AddPhoto } from "./icons/AddPhoto";
 import { AddText } from "./icons/AddText";
 import { Administrator } from "./icons/Administrator";
+import { AdminPanelSettings } from "./icons/AdminPanelSettings";
 import { AdvancePaymentsExport } from "./icons/AdvancePaymentsExport";
 import { Affect } from "./icons/Affect";
 import { Agency } from "./icons/Agency";
@@ -438,6 +439,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   AddPhoto,
   AddText,
   Administrator,
+  AdminPanelSettings,
   AdvancePaymentsExport,
   Affect,
   Agency,

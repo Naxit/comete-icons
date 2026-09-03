@@ -37,6 +37,7 @@ export type IconName =
   | "AddPhoto"
   | "AddText"
   | "Administrator"
+  | "AdminPanelSettings"
   | "AdvancePaymentsExport"
   | "Affect"
   | "Agency"
