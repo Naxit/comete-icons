@@ -159,6 +159,7 @@ import { FilterList } from "./icons/FilterList";
 import { FilterListOff } from "./icons/FilterListOff";
 import { FiltersDown } from "./icons/FiltersDown";
 import { FiltersUp } from "./icons/FiltersUp";
+import { FinanceMode } from "./icons/FinanceMode";
 import { FingerPrint } from "./icons/FingerPrint";
 import { Flag } from "./icons/Flag";
 import { FlipToFront } from "./icons/FlipToFront";
@@ -328,6 +329,7 @@ import { ResourcePin } from "./icons/ResourcePin";
 import { ResourceSectorsFilter } from "./icons/ResourceSectorsFilter";
 import { ResourcesBonuses } from "./icons/ResourcesBonuses";
 import { RestoreFromTrash } from "./icons/RestoreFromTrash";
+import { Revenue } from "./icons/Revenue";
 import { Reviews } from "./icons/Reviews";
 import { RocketLaunch } from "./icons/RocketLaunch";
 import { SalesActions } from "./icons/SalesActions";
@@ -378,6 +380,7 @@ import { StatusUpdate } from "./icons/StatusUpdate";
 import { Stop } from "./icons/Stop";
 import { Straighten } from "./icons/Straighten";
 import { SubContractor } from "./icons/SubContractor";
+import { SubcontractorFilter } from "./icons/SubcontractorFilter";
 import { SubcontractorOrder } from "./icons/SubcontractorOrder";
 import { SupportAgent } from "./icons/SupportAgent";
 import { SwapVert } from "./icons/SwapVert";
@@ -585,6 +588,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   FilterListOff,
   FiltersDown,
   FiltersUp,
+  FinanceMode,
   FingerPrint,
   Flag,
   FlipToFront,
@@ -754,6 +758,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   ResourcesBonuses,
   ResourceSectorsFilter,
   RestoreFromTrash,
+  Revenue,
   Reviews,
   RocketLaunch,
   SalesActions,
@@ -804,6 +809,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Stop,
   Straighten,
   SubContractor,
+  SubcontractorFilter,
   SubcontractorOrder,
   SupportAgent,
   SwapVert,
