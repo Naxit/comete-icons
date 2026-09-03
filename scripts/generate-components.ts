@@ -402,6 +402,25 @@ function main() {
     );
     iconNames.push(name);
   }
+
+  // Additif : conserver les composants déjà présents dans src/icons/ mais absents
+  // de Figma (le pipeline n'enlève jamais d'icône du paquet). Leur .tsx existant
+  // n'est pas régénéré ; on l'inclut simplement dans les types/registry/barrel.
+  const generated = new Set(iconNames);
+  const kept: string[] = [];
+  for (const file of readdirSync(ICONS_DIR)) {
+    if (!file.endsWith(".tsx")) continue;
+    const name = file.slice(0, -4);
+    if (!generated.has(name)) {
+      iconNames.push(name);
+      kept.push(name);
+    }
+  }
+  if (kept.length > 0) {
+    console.log(
+      `   ↳ ${kept.length} icône(s) conservée(s) (absentes de Figma) : ${kept.join(", ")}`,
+    );
+  }
   console.log(`   ✓ ${iconNames.length} icon components`);
 
   // Generate types + utils (types needs iconNames for IconName union)

@@ -54,6 +54,15 @@ comete-icons/
     - `#856D0E` → `var(--icon-warning)`
 - La prop `color` mappe vers les CSS custom properties de `@aexae/comete-design-tokens` : `--icon-default`, `--icon-success`, etc.
 
+### ⚠️ `src/styles/icons.css` appartient à `sync-icon-colors.ts`, PAS à `generate`
+
+Le fichier `src/styles/icons.css` (mapping `color` → token, ex. `.comete-icon--accentBlueGrey`) est la sortie de **`pnpm sync-colors`** (`sync-icon-colors.ts`), qui couvre le jeu de couleurs **complet** (`accentBlueGrey/Magenta/Purple/Teal/Turquoise`, `bold`, `comete`, …).
+
+`pnpm generate` régénère aussi un `icons.css`, mais **appauvri** (jeu de couleurs réduit) → le commiter **régresse les couleurs**. Règles :
+
+- `pnpm sync-colors` **n'est pas** dans `pnpm pipeline` : après un `generate`/`pipeline`, **ne pas committer le `icons.css` produit par generate**. Soit relancer `pnpm sync-colors`, soit restaurer `git checkout -- src/styles/icons.css`.
+- Ajouter/retirer une icône **ne change pas** `icons.css` (il est par couleur, pas par icône) → il doit rester **inchangé** dans un diff d'ajout d'icône.
+
 ## Export incrémental
 
 Le script `fetch-icons.ts` utilise un manifeste (`svg/.manifest.json`) pour tracker l'état des icônes :
@@ -63,7 +72,14 @@ Le script `fetch-icons.ts` utilise un manifeste (`svg/.manifest.json`) pour trac
   - Si identique → skip complet (aucun appel API supplémentaire)
   - Si différent → récupère l'arbre, compare les nodeIds pour détecter ajouts/suppressions/modifications
 - **`--force`** : ignore le manifeste et re-télécharge tout
-- Les icônes supprimées dans Figma sont automatiquement supprimées du dossier `svg/`
+
+### ⚠️ Pipeline ADDITIF (règle absolue)
+
+Le pipeline **ajoute** les icônes présentes dans Figma et absentes du repo, mais **ne supprime JAMAIS** une icône présente dans le repo et absente de Figma :
+
+- `fetch-icons.ts` ne supprime plus les SVG « obsolètes » : il les **conserve** et les rapporte seulement (`… absentes de Figma (conservées)`).
+- `generate-components.ts` **unionne** les icônes de `svg/` (Figma) avec les composants déjà présents dans `src/icons/*.tsx` → le jeu d'icônes du paquet ne rétrécit jamais (robuste même en `--force`/fresh clone).
+- Retirer une icône est donc une opération **manuelle et explicite** (supprimer son `.tsx` + les entrées `index.ts`/`types.ts`/`registry.ts`), jamais un effet de bord du sync — et c'est un changement **cassant**.
 
 ## Convention de nommage
 
@@ -74,9 +90,10 @@ Fichiers SVG : `{IconName}-{16|24}.svg`
 
 1. Ajouter l'icône dans la frame **"DO NOT DELETE THIS FRAME (targeted by script)"** du fichier Figma (3 variants × 2 spacings)
 2. Nommer la frame de l'icône `Icon/{NomEnPascalCase}` avec des instances portant les properties `variant` et `spacing`
-3. `FIGMA_TOKEN=xxx pnpm pipeline` pour tout regénérer (⚠️ ne pas utiliser `pnpm fetch` qui est une commande built-in de pnpm)
-4. `pnpm build`
-5. Commit + publish
+3. `FIGMA_TOKEN=xxx pnpm figma:sync && pnpm optimize && pnpm generate` (ou `pnpm pipeline`). ⚠️ ne pas utiliser `pnpm fetch` (commande built-in de pnpm). Le token est lu depuis la variable **`FIGMA_TOKEN`** (le `.env` peut la définir).
+4. **Revoir le diff.** Le pipeline est additif (il n'enlève rien) mais peut ajouter d'**autres** icônes présentes dans Figma. Pour n'ajouter QUE des icônes précises : restaurer le reste à HEAD (`git checkout -- src/icons src/index.ts src/types.ts src/registry.ts src/styles/icons.css`), garder seulement les `.tsx` voulus, puis insérer leurs entrées dans `index.ts`, `types.ts` (union **`IconName`** — pas `IconColor` !) et `registry.ts` (import + map). Vérifier que `src/styles/icons.css` reste **inchangé** (cf. section Couleurs).
+5. `pnpm typecheck && pnpm lint && pnpm test && pnpm build`
+6. Commit + publish (bump de version)
 
 ## Ajout d'une icône Material Symbols (hors Figma)
 

@@ -15,7 +15,6 @@ import {
   mkdirSync,
   readFileSync,
   rmSync,
-  unlinkSync,
   writeFileSync,
 } from "node:fs";
 import { join } from "node:path";
@@ -334,13 +333,15 @@ async function runWithRoot(
         : "🆕 Premier sync : téléchargement complet",
     );
   } else {
-    // Incremental: only fetch new/changed icons, remove deleted ones
+    // Incrémental ADDITIF : on récupère les icônes nouvelles/modifiées de Figma,
+    // mais on NE SUPPRIME JAMAIS celles présentes dans le repo et absentes de
+    // Figma. Règle : le pipeline ajoute, il n'enlève pas d'icône du paquet.
     const prevKeys = new Set(Object.keys(prevManifest.icons));
 
     // New icons = present in Figma but not in manifest
     const newKeys = [...currentKeys].filter((k) => !prevKeys.has(k));
 
-    // Deleted icons = present in manifest but not in Figma
+    // Icônes du repo absentes de Figma : conservées (jamais supprimées).
     removedKeys = [...prevKeys].filter((k) => !currentKeys.has(k));
 
     // Changed icons = nodeId changed (icon was re-created/replaced in Figma)
@@ -355,20 +356,15 @@ async function runWithRoot(
       .map((k) => iconByKey.get(k)!)
       .filter(Boolean);
 
-    // Remove deleted SVGs from disk
-    for (const key of removedKeys) {
-      const filepath = join(SVG_DIR, key);
-      if (existsSync(filepath)) {
-        unlinkSync(filepath);
-      }
-    }
+    // Additif : aucune suppression de SVG sur disque (removedKeys est seulement
+    // rapporté, jamais appliqué).
 
     console.log(
-      `📊 Incrémental : ${newKeys.length} nouvelles, ${changedKeys.length} modifiées, ${removedKeys.length} supprimées`,
+      `📊 Incrémental : ${newKeys.length} nouvelles, ${changedKeys.length} modifiées, ${removedKeys.length} absentes de Figma (conservées)`,
     );
 
-    if (iconsToFetch.length === 0 && removedKeys.length === 0) {
-      console.log("✅ Aucune icône à mettre à jour.");
+    if (iconsToFetch.length === 0) {
+      console.log("✅ Aucune icône à ajouter/mettre à jour.");
       // Still update manifest with new lastModified
       const manifest: Manifest = {
         ...prevManifest,
@@ -440,7 +436,9 @@ async function runWithRoot(
   }
 
   if (removedKeys.length > 0) {
-    console.log(`🗑️  Supprimé ${removedKeys.length} SVGs obsolètes`);
+    console.log(
+      `ℹ️  ${removedKeys.length} icône(s) du repo absente(s) de Figma — conservée(s) (pipeline additif).`,
+    );
   }
 
   // Build and save manifest
