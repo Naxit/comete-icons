@@ -190,6 +190,7 @@ export { Handshake } from "./icons/Handshake";
 export { Help } from "./icons/Help";
 export { History } from "./icons/History";
 export { Home } from "./icons/Home";
+export { HourlyRate } from "./icons/HourlyRate";
 export { IdCard } from "./icons/IdCard";
 export { Image } from "./icons/Image";
 export { ImageImport } from "./icons/ImageImport";

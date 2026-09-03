@@ -186,6 +186,7 @@ import { Handshake } from "./icons/Handshake";
 import { Help } from "./icons/Help";
 import { History } from "./icons/History";
 import { Home } from "./icons/Home";
+import { HourlyRate } from "./icons/HourlyRate";
 import { IdCard } from "./icons/IdCard";
 import { Image } from "./icons/Image";
 import { ImageImport } from "./icons/ImageImport";
@@ -615,6 +616,7 @@ export const iconRegistry: Record<IconName, ComponentType<IconProps>> = {
   Help,
   History,
   Home,
+  HourlyRate,
   IdCard,
   Image,
   ImageImport,

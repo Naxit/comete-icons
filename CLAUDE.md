@@ -52,6 +52,7 @@ comete-icons/
   - Tracés **secondaires** : couleur d'accent mappée vers un token CSS. Mapping actuel :
     - `#007ADA` → `var(--icon-information)`
     - `#856D0E` → `var(--icon-warning)`
+    - `#E12121` → `var(--icon-critical)`
 - La prop `color` mappe vers les CSS custom properties de `@aexae/comete-design-tokens` : `--icon-default`, `--icon-success`, etc.
 
 ### ⚠️ `src/styles/icons.css` appartient à `sync-icon-colors.ts`, PAS à `generate`

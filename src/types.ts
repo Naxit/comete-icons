@@ -215,6 +215,7 @@ export type IconName =
   | "Help"
   | "History"
   | "Home"
+  | "HourlyRate"
   | "IdCard"
   | "Image"
   | "ImageImport"
